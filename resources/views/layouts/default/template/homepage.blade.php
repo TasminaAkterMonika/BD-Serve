@@ -1,12 +1,5 @@
-
-		<body>
-
-		<!--[if lt IE 8]>
-			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-		<![endif]-->
-
+<body>
         <div id="preloader"></div>
-        
         @include('layouts.default.navigation')
         <!-- header end -->
         <!-- Start Slider Area -->
@@ -169,8 +162,8 @@
         <!-- about-area start -->
         <div class="about-area area-padding">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="row">       
+                    <div class="col-md-6 col-sm-6 col-xs-12 mm">
                         <div class="about-content">
                             <h4> <span class="color">Clean Home </span> - Bringing Excellence in Residential & Commercial cleaning services</h4>
                             <p>The phrasal sequence of the Lorem Ipsum text is now so widespread and commonplace that many DTP programmes can generate dummy text using. the Lorem Ipsum text is now so widespread and commonplace that many DTP programmes can generate dummy text using.</p>
@@ -192,13 +185,18 @@
                             </div>
                         </div>
                     </div>
+                     
                     <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ $about->image }}
                         <div class="about-image">
-                            <img src="img/about/ab.jpg" alt="">
+                            <img src="{{ asset('uploads')}}/images/about/{{ $about->image }}" alt="">
                         </div>
+                        
                     </div>
+                     
                     <!-- column end -->
                 </div>
+               
             </div>
         </div>
         <!-- about-area end -->
@@ -805,21 +803,4 @@
         </div>
         <!--End of Blog Area-->
         <!-- Start Banner Area -->
-        <div class="banner-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="banner-content">
-                            <h4>Are you looking for professional Cleaning Services for your House?</h4>
-                            <div class="banner-contact">
-                                <span class="call-us"><i class="icon icon-phone-handset"></i>Call us:  +1313-4325432 </span><span>Or</span>
-                                <a class="banner-btn" href="#">Contact us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Banner Area -->
-        <!-- Start Footer bottom Area -->
-        
+    

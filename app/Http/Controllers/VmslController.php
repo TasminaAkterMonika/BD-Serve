@@ -20,6 +20,7 @@ use App\Models\projectdetails;
 use App\Models\shopdetails;
 use App\Models\contactus;
 use App\Models\Core\Users;
+
 use App\Models\ourachivement;
 use App\Models\Websitesettings;
 use App\Models\Vacancyannouncement;
@@ -222,6 +223,8 @@ public function savecareer(Request $request ){
     public function about(){
         $data['title'] = 'About Us';
 		$data['about'] = aboutus::where('status', 1)->orderBy('id', 'DESC')->FIRST();
+        $data['teams'] = ourteam::where('status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+        $data['reviews'] = review::where('status', 1)->orderBy('id', 'DESC')->get();
 		$data['setting'] = Websitesettings::where('id', 1)->first();
 		return view('layouts.default.template.about', $data);
     }
@@ -248,6 +251,7 @@ public function savecareer(Request $request ){
 
     public function testimonial_s(){
         $data['title'] = 'Testimonial';
+        
 		$data['testimonials'] = testimonial::where('status', 1)->orderBy('id', 'DESC')->get();
 		$data['setting'] = Websitesettings::where('id', 1)->first();
 		return view('layouts.default.template.testimonial', $data);
@@ -256,11 +260,11 @@ public function savecareer(Request $request ){
     public function service(){
         $data['title'] = 'Services';
 		$data['services'] = ourservice::where('status', 1)->orderBy('id', 'DESC')->get();
+        $data['categorys'] = category::where('status', 1)->orderBy('id', 'DESC')->get();
 		$data['setting'] = Websitesettings::where('id', 1)->first();
 		return view('layouts.default.template.ourservice', $data);
     }
-    
-    
+ 
     public function singleService($id){
         $service = ourservice::find($id);
         $data['title'] = $service->service_name;
@@ -302,21 +306,6 @@ public function savecareer(Request $request ){
 		return view('layouts.default.template.singleproject', $data);
     }
 
-    public function shop_details(){
-        $data['title'] = 'Shop Details';
-		$data['shops'] = shopdetails::where('status', 1)->orderBy('id', 'DESC')->get();
-		$data['setting'] = Websitesettings::where('id', 1)->first();
-		return view('layouts.default.template.shopdetails', $data);
-    }
-
-    public function single_shop($id){
-        $shop = shopdetails::find($id);
-        $data['title'] = $shop->title;
-        $data['shop'] = $shop;
-		$data['shops'] = shopdetails::where('status', 1)->orderBy('id', 'DESC')->get();
-		$data['setting'] = Websitesettings::where('id', 1)->first();
-		return view('layouts.default.template.singleshop', $data);
-    }
 
     public function contact_us(){
         $data['title'] = 'Contact Us';
@@ -328,7 +317,7 @@ public function savecareer(Request $request ){
 
 	public function career(){
 	    $data['title'] = 'Career';
-	    $data['setting'] = Websitesettings::where('id', 1)->first();
+	    $data['setting'] =  Websitesettings::where('id', 1)->first();
 	    $data['circular'] = Vacancyannouncement::orderBy('id', 'DESC')->get();
 	    return view('layouts.default.template.career', $data);
 	}

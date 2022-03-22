@@ -20,11 +20,6 @@ Route::resource('vacancyannouncement','VacancyannouncementController');
 // End Routes for vacancyannouncement 
 
                     
-// Start Routes for aboutus 
-Route::resource('aboutus','AboutusController');
-// End Routes for aboutus 
-
-                    
 // Start Routes for ourteam 
 Route::resource('ourteam','OurteamController');
 // End Routes for ourteam 
@@ -38,5 +33,40 @@ Route::resource('review','ReviewController');
 // Start Routes for contactus 
 Route::resource('contactus','ContactusController');
 // End Routes for contactus 
+
+                    
+// Start Routes for faq 
+Route::resource('faq','FaqController');
+// End Routes for faq 
+
+                    
+// Start Routes for faqdescription 
+Route::resource('faqdescription','FaqdescriptionController');
+// End Routes for faqdescription 
+
+                    
+// Start Routes for projectdetails 
+Route::resource('projectdetails','ProjectdetailsController');
+// End Routes for projectdetails 
+
+                    
+// Start Routes for blogdetails 
+Route::resource('blogdetails','BlogdetailsController');
+// End Routes for blogdetails 
+
+                    
+// Start Routes for category 
+Route::resource('category','CategoryController');
+// End Routes for category 
+
+                    
+// Start Routes for ourservice 
+Route::resource('ourservice','OurserviceController');
+// End Routes for ourservice 
+
+                    
+// Start Routes for aboutus 
+Route::resource('aboutus','AboutusController');
+// End Routes for aboutus 
 
                     ?>

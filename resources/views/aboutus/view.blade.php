@@ -33,6 +33,12 @@
 					</tr>
 				
 					<tr>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Banner', (isset($fields['banner']['language'])? $fields['banner']['language'] : array())) }}</td>
+						<td>{{ $row->banner}} </td>
+						
+					</tr>
+				
+					<tr>
 						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Image', (isset($fields['image']['language'])? $fields['image']['language'] : array())) }}</td>
 						<td>{{ $row->image}} </td>
 						
@@ -89,6 +95,18 @@
 					<tr>
 						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Experience', (isset($fields['experience']['language'])? $fields['experience']['language'] : array())) }}</td>
 						<td>{{ $row->experience}} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Link', (isset($fields['link']['language'])? $fields['link']['language'] : array())) }}</td>
+						<td>{{ $row->link}} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Description', (isset($fields['description']['language'])? $fields['description']['language'] : array())) }}</td>
+						<td>{{ $row->description}} </td>
 						
 					</tr>
 				

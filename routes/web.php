@@ -98,6 +98,8 @@ Route::get('review-s','VmslController@review_s')->name('review.s');
 
 Route::get('faq-s','VmslController@faq_s')->name('faq.s');
 
+Route::get('projects','VmslController@project_details')->name('projects');
+
 Route::get('testimonial-s','VmslController@testimonial_s')->name('testimonial.s');
 
 Route::get('services','VmslController@service')->name('services');
@@ -108,8 +110,6 @@ Route::get('blogs','VmslController@blog_details')->name('blogs');
 
 Route::get('single/blog/{id}','VmslController@single_blog')->name('single.blog');
 
-Route::get('projects','VmslController@project_details')->name('projects');
-
 Route::get('single/project/{id}','VmslController@single_project')->name('single.project');
 
 Route::get('shops','VmslController@shop_details')->name('shops');
@@ -117,3 +117,7 @@ Route::get('shops','VmslController@shop_details')->name('shops');
 Route::get('single/shop/{id}','VmslController@single_shop')->name('single.shop');
 
 Route::get('contacts','VmslController@contact_us')->name('contacts');
+
+Route::get('order','VmslController@contact_us')->name('order');
+
+Route::get('category-s','VmslController@category_s')->name('category.s');

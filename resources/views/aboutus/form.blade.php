@@ -31,6 +31,24 @@
 						<fieldset><legend> About Us</legend>
 				{!! Form::hidden('id', $row['id']) !!}					
 									  <div class="form-group row  " >
+										<label for="Banner" class=" control-label col-md-4 text-left"> Banner </label>
+										<div class="col-md-6">
+										  
+						<div class="fileUpload btn " > 
+						    <span>  <i class="fa fa-camera"></i>  </span>
+						    <div class="title"> Browse File </div>
+						    <input type="file" name="banner" class="upload"   accept="image/x-png,image/gif,image/jpeg"     />
+						</div>
+						<div class="banner-preview preview-upload">
+							{!! SiteHelpers::showUploadedFile( $row["banner"],"/uploads/images/banner") !!}
+						</div>
+					 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group row  " >
 										<label for="Image" class=" control-label col-md-4 text-left"> Image </label>
 										<div class="col-md-6">
 										  
@@ -51,8 +69,8 @@
 									  <div class="form-group row  " >
 										<label for="About Us" class=" control-label col-md-4 text-left"> About Us </label>
 										<div class="col-md-6">
-										  <textarea name='about_us' rows='5' id='editor' class='form-control form-control-sm editor '  
-						 >{{ $row['about_us'] }}</textarea> 
+										  <textarea name='about_us' rows='5' id='about_us' class='form-control form-control-sm '  
+				           >{{ $row['about_us'] }}</textarea> 
 										 </div> 
 										 <div class="col-md-2">
 										 	
@@ -133,6 +151,26 @@
 										<div class="col-md-6">
 										  <input  type='text' name='experience' id='experience' value='{{ $row['experience'] }}' 
 						     class='form-control form-control-sm ' /> 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group row  " >
+										<label for="Link" class=" control-label col-md-4 text-left"> Link </label>
+										<div class="col-md-6">
+										  <textarea name='link' rows='5' id='link' class='form-control form-control-sm '  
+				           >{{ $row['link'] }}</textarea> 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group row  " >
+										<label for="Description" class=" control-label col-md-4 text-left"> Description </label>
+										<div class="col-md-6">
+										  <textarea name='description' rows='5' id='editor' class='form-control form-control-sm editor '  
+						 >{{ $row['description'] }}</textarea> 
 										 </div> 
 										 <div class="col-md-2">
 										 	

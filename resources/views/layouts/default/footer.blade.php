@@ -6,7 +6,7 @@
                             <h4>Are you looking for professional Cleaning Services for your House?</h4>
                             <div class="banner-contact">
                                 <span class="call-us"><i class="icon icon-phone-handset"></i>Call us:  +1313-4325432 </span><span>Or</span>
-                                <a class="banner-btn" href="#">Contact us</a>
+                                <a class="banner-btn" href="{{ route('contacts',$contact->id)}}">Contact us</a>
                             </div>
                         </div>
                     </div>
@@ -26,9 +26,9 @@
 									<p>We help agencies to define their new business objectives and then create the road map to get them there by devising a business.We help agencies to define their new business.</p>
 
 									<div class="footer-contacts">
-										<p><span>Tel:</span> +013 654 432</p>
-                                        <p><span>Email:</span> info@cleanservice.com</p>
-                                        <p><span>Location:</span> 22 avanue,Newyork</p>
+										<p><span>Tel:</span> {!!$setting->phone!!}</p>
+                                        <p><span>Email:</span> {!!$setting->email!!}</p>
+                                        <p><span>Location:</span> {!!$setting->address!!}</p>
 									</div>
 								</div>
 							</div>
@@ -58,27 +58,27 @@
                                         <h5>Follow us</h5>
 										<ul>
 											<li>
-												<a href="#">
+												<a href="{!!$setting->facebook!!}">
 													<i class="fa fa-facebook"></i>
 												</a>
 											</li>
 											<li>
-												<a href="#">
+												<a href="{!!$setting->twitter!!}">
 													<i class="fa fa-twitter"></i>
 												</a>
 											</li>
 											<li>
-												<a href="#">
+												<a href{!!$setting->google!!}">
 													<i class="fa fa-google"></i>
 												</a>
 											</li>
 											<li>
-												<a href="#">
+												<a href="{!!$setting->twitter!!}">
 													<i class="fa fa-pinterest"></i>
 												</a>
 											</li>
 											<li>
-												<a href="#">
+												<a href="{!!$setting->twitter!!}">
 													<i class="fa fa-instagram"></i>
 												</a>
 											</li>

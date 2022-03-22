@@ -107,13 +107,12 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <!-- Start Map -->
                         <div class="map-area">
-                            <div id="googleMap" style="width:100%;height:450px;"></div>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14605.207691368267!2d90.35496461941824!3d23.77226064046293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c0a880f7909d%3A0xe8d7d2484b62becc!2sShyamoli%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1647761748921!5m2!1sen!2sbd" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                         <!-- End Map -->
                     </div>
                 </div>
             </div>
         </div>	
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBceNl50o3BU6LrsIGJxSL9tKKvqBKIeVs"></script>
-        <script src="js/mapcode.js"></script>
+        
 @include('layouts.default.footer')
