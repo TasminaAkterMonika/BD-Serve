@@ -18,8 +18,26 @@
 					</tr>
 				
 					<tr>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Category Id', (isset($fields['category_id']['language'])? $fields['category_id']['language'] : array())) }}</td>
+						<td>{{ SiteHelpers::formatLookUp($row->category_id,'category_id','1:category:id:category') }} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Title', (isset($fields['title']['language'])? $fields['title']['language'] : array())) }}</td>
+						<td>{{ $row->title}} </td>
+						
+					</tr>
+				
+					<tr>
 						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Image', (isset($fields['image']['language'])? $fields['image']['language'] : array())) }}</td>
 						<td>{{ $row->image}} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Short Description', (isset($fields['short_description']['language'])? $fields['short_description']['language'] : array())) }}</td>
+						<td>{{ $row->short_description}} </td>
 						
 					</tr>
 				
@@ -31,7 +49,7 @@
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Status', (isset($fields['status']['language'])? $fields['status']['language'] : array())) }}</td>
-						<td>{{ $row->status}} </td>
+						<td>{{ SiteHelpers::formatLookUp($row->status,'status','1:status:id:title') }} </td>
 						
 					</tr>
 						

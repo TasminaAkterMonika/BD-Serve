@@ -1,28 +1,28 @@
 <?php namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Servicescategory;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Validator, Input, Redirect ; 
 
 
-class CategoryController extends Controller {
+class ServicescategoryController extends Controller {
 
 	protected $layout = "layouts.main";
 	protected $data = array();	
-	public $module = 'category';
+	public $module = 'servicescategory';
 	static $per_page	= '50';
 
 	public function __construct()
 	{		
 		parent::__construct();
-		$this->model = new Category();	
+		$this->model = new Servicescategory();	
 		
 		$this->info = $this->model->makeInfo( $this->module);	
 		$this->data = array(
 			'pageTitle'	=> 	$this->info['title'],
 			'pageNote'	=>  $this->info['note'],
-			'pageModule'=> 'category',
+			'pageModule'=> 'servicescategory',
 			'return'	=> self::returnUrl()
 			
 		);
@@ -173,8 +173,8 @@ class CategoryController extends Controller {
 	public static function display(  )
 	{
 		$mode  = isset($_GET['view']) ? 'view' : 'default' ;
-		$model  = new Category();
-		$info = $model::makeInfo('category');
+		$model  = new Servicescategory();
+		$info = $model::makeInfo('servicescategory');
 		$data = array(
 			'pageTitle'	=> 	$info['title'],
 			'pageNote'	=>  $info['note']			
@@ -188,7 +188,7 @@ class CategoryController extends Controller {
 				$data['row'] =  $row;
 				$data['fields'] 		=  \SiteHelpers::fieldLang($info['config']['grid']);
 				$data['id'] = $id;
-				return view('category.public.view',$data);			
+				return view('servicescategory.public.view',$data);			
 			}			
 		} 
 		else {
@@ -212,7 +212,7 @@ class CategoryController extends Controller {
 			$pagination->setPath('');
 			$data['i']			= ($page * $params['limit'])- $params['limit']; 
 			$data['pagination'] = $pagination;
-			return view('category.public.index',$data);	
+			return view('servicescategory.public.index',$data);	
 		}
 
 	}

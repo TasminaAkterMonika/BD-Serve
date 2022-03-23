@@ -89,7 +89,7 @@ Route::get('getmedicine/{id}','CitController@getMedicineById');
 Route::post('sendmail','VmslController@contact_email')->name('contact.email');
 
 
-//kfa
+//cleanhome
 Route::get('about','VmslController@about')->name('about');
 
 Route::get('our-team','VmslController@our_team')->name('our.team');
@@ -111,10 +111,6 @@ Route::get('blogs','VmslController@blog_details')->name('blogs');
 Route::get('single/blog/{id}','VmslController@single_blog')->name('single.blog');
 
 Route::get('single/project/{id}','VmslController@single_project')->name('single.project');
-
-Route::get('shops','VmslController@shop_details')->name('shops');
-
-Route::get('single/shop/{id}','VmslController@single_shop')->name('single.shop');
 
 Route::get('contacts','VmslController@contact_us')->name('contacts');
 

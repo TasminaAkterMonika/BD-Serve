@@ -55,18 +55,23 @@ Route::resource('services/blogdetails','Services\BlogdetailsController');
 // End Routes for blogdetails 
 
                     
-// Start Routes for category 
-Route::resource('services/category','Services\CategoryController');
-// End Routes for category 
-
-                    
-// Start Routes for ourservice 
-Route::resource('services/ourservice','Services\OurserviceController');
-// End Routes for ourservice 
-
-                    
 // Start Routes for aboutus 
 Route::resource('services/aboutus','Services\AboutusController');
 // End Routes for aboutus 
+
+                    
+// Start Routes for ourservices 
+Route::resource('services/ourservices','Services\OurservicesController');
+// End Routes for ourservices 
+
+                    
+// Start Routes for servicescategory 
+Route::resource('services/servicescategory','Services\ServicescategoryController');
+// End Routes for servicescategory 
+
+                    
+// Start Routes for servicesprice 
+Route::resource('services/servicesprice','Services\ServicespriceController');
+// End Routes for servicesprice 
 
                     ?>

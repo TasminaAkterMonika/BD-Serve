@@ -1,6 +1,6 @@
 
 
-		 {!! Form::open(array('url'=>'category', 'class'=>'form-horizontal','files' => true , 'parsley-validate'=>'','novalidate'=>' ')) !!}
+		 {!! Form::open(array('url'=>'servicescategory', 'class'=>'form-horizontal','files' => true , 'parsley-validate'=>'','novalidate'=>' ')) !!}
 
 	@if(Session::has('messagetext'))
 	  
@@ -15,7 +15,7 @@
 
 
 <div class="col-md-12">
-						<fieldset><legend> Categorys</legend>
+						<fieldset><legend> Services Category</legend>
 				{!! Form::hidden('id', $row['id']) !!}					
 									  <div class="form-group row  " >
 										<label for="Offer" class=" control-label col-md-4 text-left"> Offer </label>
@@ -50,26 +50,8 @@
 									  <div class="form-group row  " >
 										<label for="Defination" class=" control-label col-md-4 text-left"> Defination </label>
 										<div class="col-md-6">
-										  <input  type='text' name='defination' id='defination' value='{{ $row['defination'] }}' 
-						     class='form-control form-control-sm ' /> 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group row  " >
-										<label for="Select Option" class=" control-label col-md-4 text-left"> Select Option </label>
-										<div class="col-md-6">
-										  
-					<?php $select_option = explode(',',$row['select_option']);
-					$select_option_opt = array( 'Floors cleaning' => 'Floors cleaning' ,  'Window cleaning' => 'Window cleaning' ,  'Carpet cleaning' => 'Carpet cleaning' ,  'Washroom cleaning' => 'Washroom cleaning' , ); ?>
-					<select name='select_option' rows='5'   class='select2 '  > 
-						<?php 
-						foreach($select_option_opt as $key=>$val)
-						{
-							echo "<option  value ='$key' ".($row['select_option'] == $key ? " selected='selected' " : '' ).">$val</option>"; 						
-						}						
-						?></select> 
+										  <textarea name='defination' rows='5' id='editor' class='form-control form-control-sm editor '  
+						 >{{ $row['defination'] }}</textarea> 
 										 </div> 
 										 <div class="col-md-2">
 										 	
@@ -103,7 +85,7 @@
 	$(document).ready(function() { 
 		
 		
-		$("#status").jCombo("{!! url('category/comboselect?filter=status:id:title') !!}",
+		$("#status").jCombo("{!! url('servicescategory/comboselect?filter=status:id:title') !!}",
 		{  selected_value : '{{ $row["status"] }}' });
 		 
 

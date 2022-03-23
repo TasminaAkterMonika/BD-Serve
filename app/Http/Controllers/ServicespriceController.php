@@ -1,28 +1,28 @@
 <?php namespace App\Http\Controllers;
 
-use App\Models\Websitesettings;
+use App\Models\Servicesprice;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Validator, Input, Redirect ; 
 
 
-class WebsitesettingsController extends Controller {
+class ServicespriceController extends Controller {
 
 	protected $layout = "layouts.main";
 	protected $data = array();	
-	public $module = 'websitesettings';
+	public $module = 'servicesprice';
 	static $per_page	= '50';
 
 	public function __construct()
 	{		
 		parent::__construct();
-		$this->model = new Websitesettings();	
+		$this->model = new Servicesprice();	
 		
 		$this->info = $this->model->makeInfo( $this->module);	
 		$this->data = array(
 			'pageTitle'	=> 	$this->info['title'],
 			'pageNote'	=>  $this->info['note'],
-			'pageModule'=> 'websitesettings',
+			'pageModule'=> 'servicesprice',
 			'return'	=> self::returnUrl()
 			
 		);
@@ -173,8 +173,8 @@ class WebsitesettingsController extends Controller {
 	public static function display(  )
 	{
 		$mode  = isset($_GET['view']) ? 'view' : 'default' ;
-		$model  = new Websitesettings();
-		$info = $model::makeInfo('websitesettings');
+		$model  = new Servicesprice();
+		$info = $model::makeInfo('servicesprice');
 		$data = array(
 			'pageTitle'	=> 	$info['title'],
 			'pageNote'	=>  $info['note']			
@@ -188,7 +188,7 @@ class WebsitesettingsController extends Controller {
 				$data['row'] =  $row;
 				$data['fields'] 		=  \SiteHelpers::fieldLang($info['config']['grid']);
 				$data['id'] = $id;
-				return view('websitesettings.public.view',$data);			
+				return view('servicesprice.public.view',$data);			
 			}			
 		} 
 		else {
@@ -212,7 +212,7 @@ class WebsitesettingsController extends Controller {
 			$pagination->setPath('');
 			$data['i']			= ($page * $params['limit'])- $params['limit']; 
 			$data['pagination'] = $pagination;
-			return view('websitesettings.public.index',$data);	
+			return view('servicesprice.public.index',$data);	
 		}
 
 	}

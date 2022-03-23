@@ -3,7 +3,7 @@
 @section('content')
 <div class="page-header"><h2> {{ $pageTitle }} <small> {{ $pageNote }} </small> </h2></div>
 
-	{!! Form::open(array('url'=>'ourservice?return='.$return, 'class'=>'form-horizontal validated sximo-form','files' => true ,'id'=> 'FormTable' )) !!}
+	{!! Form::open(array('url'=>'servicesprice?return='.$return, 'class'=>'form-horizontal validated sximo-form','files' => true ,'id'=> 'FormTable' )) !!}
 	<div class="toolbar-nav">
 		<div class="row">
 			
@@ -28,12 +28,12 @@
 		</ul>		
 		<div class="row">
 	<div class="col-md-12">
-						<fieldset><legend> Services</legend>
-									
+						<fieldset><legend> Services Price</legend>
+				{!! Form::hidden('id', $row['id']) !!}					
 									  <div class="form-group row  " >
-										<label for="Id" class=" control-label col-md-4 text-left"> Id </label>
+										<label for="Offer" class=" control-label col-md-4 text-left"> Offer </label>
 										<div class="col-md-6">
-										  <input  type='text' name='id' id='id' value='{{ $row['id'] }}' 
+										  <input  type='text' name='offer' id='offer' value='{{ $row['offer'] }}' 
 						     class='form-control form-control-sm ' /> 
 										 </div> 
 										 <div class="col-md-2">
@@ -41,9 +41,9 @@
 										 </div>
 									  </div> 					
 									  <div class="form-group row  " >
-										<label for="Image" class=" control-label col-md-4 text-left"> Image </label>
+										<label for="Package Name" class=" control-label col-md-4 text-left"> Package Name </label>
 										<div class="col-md-6">
-										  <input  type='text' name='image' id='image' value='{{ $row['image'] }}' 
+										  <input  type='text' name='package_name' id='package_name' value='{{ $row['package_name'] }}' 
 						     class='form-control form-control-sm ' /> 
 										 </div> 
 										 <div class="col-md-2">
@@ -51,10 +51,20 @@
 										 </div>
 									  </div> 					
 									  <div class="form-group row  " >
-										<label for="Description" class=" control-label col-md-4 text-left"> Description </label>
+										<label for="Price" class=" control-label col-md-4 text-left"> Price </label>
 										<div class="col-md-6">
-										  <textarea name='description' rows='5' id='description' class='form-control form-control-sm '  
-				           >{{ $row['description'] }}</textarea> 
+										  <input  type='text' name='price' id='price' value='{{ $row['price'] }}' 
+						     class='form-control form-control-sm ' /> 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group row  " >
+										<label for="Services" class=" control-label col-md-4 text-left"> Services </label>
+										<div class="col-md-6">
+										  <textarea name='services' rows='5' id='editor' class='form-control form-control-sm editor '  
+						 >{{ $row['services'] }}</textarea> 
 										 </div> 
 										 <div class="col-md-2">
 										 	
@@ -63,8 +73,7 @@
 									  <div class="form-group row  " >
 										<label for="Status" class=" control-label col-md-4 text-left"> Status </label>
 										<div class="col-md-6">
-										  <input  type='text' name='status' id='status' value='{{ $row['status'] }}' 
-						     class='form-control form-control-sm ' /> 
+										  <select name='status' rows='5' id='status' class='select2 '   ></select> 
 										 </div> 
 										 <div class="col-md-2">
 										 	
@@ -83,11 +92,14 @@
 	$(document).ready(function() { 
 		
 		
+		
+		$("#status").jCombo("{!! url('servicesprice/comboselect?filter=status:id:title') !!}",
+		{  selected_value : '{{ $row["status"] }}' });
 		 	
 		 	 
 
 		$('.removeMultiFiles').on('click',function(){
-			var removeUrl = '{{ url("ourservice/removefiles?file=")}}'+$(this).attr('url');
+			var removeUrl = '{{ url("servicesprice/removefiles?file=")}}'+$(this).attr('url');
 			$(this).parent().remove();
 			$.get(removeUrl,function(response){});
 			$(this).parent('div').empty();	

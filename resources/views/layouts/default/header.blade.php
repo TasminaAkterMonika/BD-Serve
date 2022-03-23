@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<!-- favicon -->		
-		<link rel="shortcut icon" type="image/x-icon" href="img/logo/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('uploads/images/'.$setting->favicon )}}">
 
 		<!-- all css here -->
 
@@ -30,7 +30,6 @@
 		<link rel="stylesheet" href="{{ asset('assets') }}/css/style.css">
 		<!-- responsive css -->
 		<link rel="stylesheet" href="{{ asset('assets') }}/css/responsive.css">
-
 		<!-- modernizr css -->
 		<script src="{{ asset('assets') }}/js/vendor/modernizr-2.8.3.min.js"></script>
 	</head>

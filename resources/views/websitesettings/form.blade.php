@@ -183,9 +183,9 @@
 										<div class="col-md-6">
 										  
 						<div class="fileUpload btn " > 
-						    <span>  <i class="fa fa-copy"></i>  </span>
+						    <span>  <i class="fa fa-camera"></i>  </span>
 						    <div class="title"> Browse File </div>
-						    <input type="file" name="favicon" class="upload"       />
+						    <input type="file" name="favicon" class="upload"   accept="image/x-png,image/gif,image/jpeg"     />
 						</div>
 						<div class="favicon-preview preview-upload">
 							{!! SiteHelpers::showUploadedFile( $row["favicon"],"/uploads/images") !!}

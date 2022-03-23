@@ -70,114 +70,53 @@
         </div>
         <!-- End Appointment Area -->
         <!-- service area start -->
-        <div class="welcome-area welcome-area-4 area-padding">
+         <div class="welcome-area welcome-area-4 area-padding">
             <div class="container">
                 <div class="row">
+                     @foreach(DB::table('category')->where('status',1)->get() as $category)
                     <!-- single-well end-->
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="well-services text-center">
-                            <span class="slugan">25% <br/>off</span>
+                        @if($category->offer)
+                            <span class="slugan">{{$category->offer}}% <br/>off</span>
+                            @endif
                             <div class="services-img">
-                                <a href="#"><i class="flaticon-cleaning"></i></a>
+                                <a href="#"><i class="{{$category->icon}}"></i></a>
                             </div>
                             <div class="main-services">
                                 <div class="service-content">
-                                    <h4>Residential cleaning</h4>
-                                    <p>Pernatur sit adipisci quaerat unde at neque Redug Lagre dolor sit</p>
-                                    <ul>
-                                        <li>Floors cleaning</li>
-                                        <li>Window cleaning</li>
-                                        <li>Carpet cleaning</li>
-                                        <li>Washroom cleaning</li>
-                                    </ul>
+                                    <h4>{{$category->category}}</h4>
+                                    <p>{!!$category->defination!!}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- single-well end-->
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="well-services text-center">
-                            <div class="services-img">
-                                <a href="#"><i class="flaticon-cleaning-10"></i></a>
-                            </div>
-                            <div class="main-services">
-                                <div class="service-content">
-                                    <h4>Commercial cleaning</h4>
-                                    <p>Pernatur sit adipisci quaerat unde at neque Redug Lagre dolor sit</p>
-                                    <ul>
-                                        <li>Floors cleaning</li>
-                                        <li>Window cleaning</li>
-                                        <li>Carpet cleaning</li>
-                                        <li>Washroom cleaning</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single-well end-->
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="well-services text-center">
-                            <span class="slugan">30% <br/>off</span>
-                            <div class="services-img">
-                                <a href="#"><i class="flaticon-housekeeping"></i></a>
-                            </div>
-                            <div class="main-services">
-                                <div class="service-content">
-                                    <h4>Maid service</h4>
-                                    <p>Pernatur sit adipisci quaerat unde at neque Redug Lagre dolor sit</p>
-                                    <ul>
-                                        <li>Hourly cleaning</li>
-                                        <li>Daily cleaning</li>
-                                        <li>Weekly cleaning</li>
-                                        <li>Monthly cleaning</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single-well end -->
-                    <div class="hidden-md hidden-lg col-sm-6 col-xs-12">
-                        <div class="well-services text-center">
-                            <div class="services-img">
-                                <a href="#"><i class="flaticon-cleaning-10"></i></a>
-                            </div>
-                            <div class="main-services">
-                                <div class="service-content">
-                                    <h4>Garden cleaning</h4>
-                                    <p>Pernatur sit adipisci quaerat unde at neque Redug Lagre dolor sit</p>
-                                    <ul>
-                                        <li>Tree cutting</li>
-                                        <li>Garden cleaning</li>
-                                        <li>Water cleaning</li>
-                                        <li>Garden maintenance</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach  
                 </div>
             </div>
         </div>
         <!-- service-area end -->
         <!-- about-area start -->
+        @php 
+        $about_us = DB::table('about_us')->where('status',1)->first();
+        @endphp
         <div class="about-area area-padding">
             <div class="container">
                 <div class="row">       
-                    <div class="col-md-6 col-sm-6 col-xs-12 mm">
+                    <div class="col-md-6 col-sm-6 col-xs-12 ">
                         <div class="about-content">
-                            <h4> <span class="color">Clean Home </span> - Bringing Excellence in Residential & Commercial cleaning services</h4>
-                            <p>The phrasal sequence of the Lorem Ipsum text is now so widespread and commonplace that many DTP programmes can generate dummy text using. the Lorem Ipsum text is now so widespread and commonplace that many DTP programmes can generate dummy text using.</p>
+                            <h4>{!!$about_us->about_us!!}</h4>
                             <div class="about-details text-center hidden-sm">
                                 <div class="single-about">
                                     <div class="icon-title">
-                                    	<a href="#"><i class="icon icon-gift"></i></a>
+                                    	<a href="#"><i class="{!!$about_us->certified_icon!!}"></i></a>
                                         <h5>Certified company</h5>
                                     </div>
 									<p>The phrasal sequence of the Lorem Ipsum text is now so widespread</p>
                                 </div>
                                 <div class="single-about">
                                     <div class="icon-title">
-										<a href="#"><i class="icon icon-thumbs-up"></i></a>
+										<a href="#"><i class="{!!$about_us->e_icon!!}"></i></a>
 										<h5>Our experience</h5>
                                     </div>
                                     <p>The phrasal sequence of the Lorem Ipsum text is now so widespread</p>
@@ -187,9 +126,9 @@
                     </div>
                      
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                {{ $about->image }}
+          
                         <div class="about-image">
-                            <img src="{{ asset('uploads')}}/images/about/{{ $about->image }}" alt="">
+                            <img src="{{ asset('uploads')}}/images/about/{{ $about_us->image }}" alt="">
                         </div>
                         
                     </div>
@@ -212,89 +151,27 @@
 					</div>
 				</div>
                 <div class="row text-center">
+                 @foreach(DB::table('our_service')->where('status',1)->get() as $our_service)
                     <div class="all-services">
                         <!-- Start services -->
                         <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="single-service">
-                               <span class="slugan">25% <br/>off</span>
+                               @if($category->offer)
+                               <span class="slugan">{{$category->offer}}%<br/>off</span>
+                                @endif
                                 <a class="service-image" href="#">
-                                    <img src="img/service/1.jpg" alt="">
+                                    <img src="{{ asset('uploads') }}/images/service/{{ $our_service->image }}" alt="">
                                 </a>
                                 <div class="service-content">
-                                    <h4>House cleaning</h4>
-                                    <p>Aspernatur sit adipisci quaerat unde at neque Redug Lagre dolor sit amet consectetu.</p>
+                                    <h4>{{$our_service->title}}</h4>
+                                    <p>{{$our_service->short_description}}</p>
                                     <a class="service-btn" href="#">read more</a>
                                 </div>
                             </div>
                         </div>
-                        <!-- Start services -->
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="single-service">
-                                <a class="service-image" href="#">
-                                    <img src="img/service/2.jpg" alt="">
-                                </a>
-                                <div class="service-content">
-                                    <h4>Apartment cleaning</h4>
-                                    <p>Aspernatur sit adipisci quaerat unde at neque Redug Lagre dolor sit amet consectetu.</p>
-                                    <a class="service-btn" href="#">read more</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Start services -->
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="single-service">
-                                <span class="slugan">30% <br/>off</span>
-                                <a class="service-image" href="#">
-                                    <img src="img/service/3.jpg" alt="">
-                                </a>
-                                <div class="service-content">
-                                    <h4>Carpet cleaning</h4>
-                                    <p>Aspernatur sit adipisci quaerat unde at neque Redug Lagre dolor sit amet consectetu.</p>
-                                    <a class="service-btn" href="#">read more</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Start services -->
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="single-service">
-                                <a class="service-image" href="#">
-                                    <img src="img/service/4.jpg" alt="">
-                                </a>
-                                <div class="service-content">
-                                    <h4>Commercial cleaning</h4>
-                                    <p>Aspernatur sit adipisci quaerat unde at neque Redug Lagre dolor sit amet consectetu.</p>
-                                    <a class="service-btn" href="#">read more</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Start services -->
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="single-service">
-                                <span class="slugan">20% <br/>off</span>
-                                <a class="service-image" href="#">
-                                    <img src="img/service/5.jpg" alt="">
-                                </a>
-                                <div class="service-content">
-                                    <h4>Residential cleaning</h4>
-                                    <p>Aspernatur sit adipisci quaerat unde at neque Redug Lagre dolor sit amet consectetu.</p>
-                                    <a class="service-btn" href="#">read more</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Start services -->
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="single-service">
-                                <a class="service-image" href="#">
-                                    <img src="img/service/6.jpg" alt="">
-                                </a>
-                                <div class="service-content">
-                                    <h4>After renovation</h4>
-                                    <p>Aspernatur sit adipisci quaerat unde at neque Redug Lagre dolor sit amet consectetu.</p>
-                                    <a class="service-btn" href="#">read more</a>
-                                </div>
-                            </div>
-                        </div>
+                      
                     </div>
+                    @endforeach
 				</div>
 			</div>
 		</div>
@@ -378,71 +255,26 @@
                     </div>
                 </div>
                 <div class="row">
+                 @foreach(DB::table('services_price')->where('status',1)->get() as $services_price)
                     <div class="pricing-content">
                         <div class="col-md-4 col-sm-4 col-xs-12">
                             <div class="table-list">
                                 <div class="top-price-inner">
-                                    <h4>Standard</h4>
+                                    <h4>{{$services_price->package_name}}</h4>
                                     <div class="rates">
-                                        <span class="prices"><span class="dolar">$</span>15</span><span class="users">Per Hour</span>
+                                        <span class="prices"><span class="dolar">$</span>{{$services_price->price}}</span><span class="users">Per Hour</span>
                                     </div>
                                 </div>
                                 <ol>
-                                    <li class="check">Expert cleaner</li>
-                                    <li class="check">Secure services</li>
-                                    <li class="check">Organic cleaning</li>
-                                    <li class="check">Review system</li>
-                                    <li class="check">Maintenance clening</li>
-                                    <li class="check">--------</li>
+                                    <li class="check">{!!$services_price->services!!}</li>
+                                    
                                 </ol>
                                 <div class="price-btn">
                                     <a href="order-from.html">Book now</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <div class="table-list">
-                               <span class="slugan">20% <br/>off</span>
-                                <div class="top-price-inner">
-                                    <h4>Premium</h4>
-                                    <div class="rates">
-                                        <span class="prices"><span class="dolar">$</span>80</span><span class="users">Per day</span>
-                                    </div>
-                                </div>
-                                <ol>
-                                    <li class="check">Expert cleaner</li>
-                                    <li class="check">Secure services</li>
-                                    <li class="check">Organic cleaning</li>
-                                    <li class="check">Review system</li>
-                                    <li class="check">Maintenance clening</li>
-                                    <li class="check">--------</li>
-                                </ol>
-                                <div class="price-btn">
-                                    <a href="order-from.html">Book now</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <div class="table-list">
-                                <div class="top-price-inner">
-                                    <h4>Ultimate</h4>
-                                    <div class="rates">
-                                        <span class="prices"><span class="dolar">$</span>600</span><span class="users">Per Month</span>
-                                    </div>
-                                </div>
-                                <ol>
-                                    <li class="check">Expert cleaner</li>
-                                    <li class="check">Secure services</li>
-                                    <li class="check">Organic cleaning</li>
-                                    <li class="check">Review system</li>
-                                    <li class="check">Maintenance clening</li>
-                                    <li class="check">Free support</li>
-                                </ol>
-                                <div class="price-btn">
-                                    <a href="order-from.html">Book now</a>
-                                </div>
-                            </div>
-                        </div>
+                @endforeach
                     </div>
                 </div>
             </div>
@@ -735,67 +567,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- End single blog -->
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="single-blog">
-                                <div class="blog-image">
-                                    <a class="image-scale" href="#">
-                                        <img src="img/blog/2.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                   <div class="blog-title">
-                                       <div class="blog-meta">
-                                            <span class="date-type">
-                                                14 Nov, 2017
-                                            </span>
-                                            <span class="comments-type">
-                                                <i class="fa fa-comment-o"></i>
-                                                12
-                                            </span>
-                                        </div>
-                                        <a href="#">
-                                            <h4>Carpet cleaning instrument</h4>
-                                        </a>
-                                    </div>
-                                    <div class="blog-text">
-                                        <p>Redug Lagre dolor sit amet, consectetur adipisicing elit. Minima in nostrum, veniam. Esse est assumenda inventore.</p>
-                                        <a class="blog-btn" href="#">Read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End single blog -->
-                        <div class="col-md-4 col-sm-12 col-xs-12">
-                            <div class="single-blog">
-                                <div class="blog-image">
-                                    <a class="image-scale" href="#">
-                                        <img src="img/blog/3.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                   <div class="blog-title">
-                                       <div class="blog-meta">
-                                            <span class="date-type">
-                                                12 Dec, 2017
-                                            </span>
-                                            <span class="comments-type">
-                                                <i class="fa fa-comment-o"></i>
-                                                13
-                                            </span>
-                                        </div>
-                                        <a href="#">
-                                            <h4>Residential cleaning service</h4>
-                                        </a>
-                                    </div>
-                                    <div class="blog-text">
-                                        <p>Redug Lagre dolor sit amet, consectetur adipisicing elit. Minima in nostrum, veniam. Esse est assumenda inventore.</p>
-                                        <a class="blog-btn" href="#">Read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End single blog -->
                     </div>
                 </div>
                 <!-- End row -->

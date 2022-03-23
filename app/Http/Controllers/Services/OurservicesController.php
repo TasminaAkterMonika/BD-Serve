@@ -1,29 +1,29 @@
 <?php namespace App\Http\Controllers\Services;
 
 use App\Http\Controllers\Controller;
-use App\Models\Ourservice;
+use App\Models\Ourservices;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Validator, Input, Redirect ; 
 
 
-class OurserviceController extends Controller {
+class OurservicesController extends Controller {
 
 	protected $layout = "layouts.main";
 	protected $data = array();	
-	public $module = 'ourservice';
+	public $module = 'ourservices';
 	static $per_page	= '50';
 
 	public function __construct()
 	{		
 		parent::__construct();
-		$this->model = new Ourservice();	
+		$this->model = new Ourservices();	
 		
 		$this->info = $this->model->makeInfo( $this->module);	
 		$this->data = array(
 			'pageTitle'	=> 	$this->info['title'],
 			'pageNote'	=>  $this->info['note'],
-			'pageModule'=> 'ourservice',
+			'pageModule'=> 'ourservices',
 			'return'	=> self::returnUrl()
 			
 		);

@@ -3,7 +3,7 @@
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
-class ourservice extends Sximo  {
+class ourservices extends Sximo  {
 	
 	protected $table = 'our_service';
 	protected $primaryKey = 'id';

@@ -24,26 +24,20 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Icon', (isset($fields['icon']['language'])? $fields['icon']['language'] : array())) }}</td>
-						<td>{{ $row->icon}} </td>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Package Name', (isset($fields['package_name']['language'])? $fields['package_name']['language'] : array())) }}</td>
+						<td>{{ $row->package_name}} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Category', (isset($fields['category']['language'])? $fields['category']['language'] : array())) }}</td>
-						<td>{{ $row->category}} </td>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Price', (isset($fields['price']['language'])? $fields['price']['language'] : array())) }}</td>
+						<td>{{ $row->price}} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Defination', (isset($fields['defination']['language'])? $fields['defination']['language'] : array())) }}</td>
-						<td>{{ $row->defination}} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Select Option', (isset($fields['select_option']['language'])? $fields['select_option']['language'] : array())) }}</td>
-						<td>{{ $row->select_option}} </td>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Services', (isset($fields['services']['language'])? $fields['services']['language'] : array())) }}</td>
+						<td>{{ $row->services}} </td>
 						
 					</tr>
 				

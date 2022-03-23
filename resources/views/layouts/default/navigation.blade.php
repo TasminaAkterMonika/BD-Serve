@@ -74,10 +74,10 @@
                                                 </ul>
                                             </li>
                                             <li><a class="pagess" href="{{route('services')}}">Services</a>
-                                                <ul class="sub-menu">
+                                                {{-- <ul class="sub-menu">
                                                     <li><a href="services.html">Services</a></li>
                                                     <li><a href="single-service.html">Single Services</a></li>
-                                                </ul>
+                                                </ul> --}}
                                             </li>
                                             <li><a class="pagess" href="{{route('projects')}}">Projects</a>
                                               

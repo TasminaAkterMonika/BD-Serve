@@ -3,7 +3,7 @@
 @section('content')
 <div class="page-header"><h2> {{ $pageTitle }} <small> {{ $pageNote }} </small> </h2></div>
 
-	{!! Form::open(array('url'=>'category?return='.$return, 'class'=>'form-horizontal validated sximo-form','files' => true ,'id'=> 'FormTable' )) !!}
+	{!! Form::open(array('url'=>'ourservices?return='.$return, 'class'=>'form-horizontal validated sximo-form','files' => true ,'id'=> 'FormTable' )) !!}
 	<div class="toolbar-nav">
 		<div class="row">
 			
@@ -28,12 +28,21 @@
 		</ul>		
 		<div class="row">
 	<div class="col-md-12">
-						<fieldset><legend> Categorys</legend>
+						<fieldset><legend> Our Services</legend>
 				{!! Form::hidden('id', $row['id']) !!}					
 									  <div class="form-group row  " >
-										<label for="Offer" class=" control-label col-md-4 text-left"> Offer </label>
+										<label for="Category Id" class=" control-label col-md-4 text-left"> Category Id </label>
 										<div class="col-md-6">
-										  <input  type='text' name='offer' id='offer' value='{{ $row['offer'] }}' 
+										  <select name='category_id' rows='5' id='category_id' class='select2 '   ></select> 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group row  " >
+										<label for="Title" class=" control-label col-md-4 text-left"> Title </label>
+										<div class="col-md-6">
+										  <input  type='text' name='title' id='title' value='{{ $row['title'] }}' 
 						     class='form-control form-control-sm ' /> 
 										 </div> 
 										 <div class="col-md-2">
@@ -41,48 +50,38 @@
 										 </div>
 									  </div> 					
 									  <div class="form-group row  " >
-										<label for="Icon" class=" control-label col-md-4 text-left"> Icon </label>
-										<div class="col-md-6">
-										  <input  type='text' name='icon' id='icon' value='{{ $row['icon'] }}' 
-						     class='form-control form-control-sm ' /> 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group row  " >
-										<label for="Category" class=" control-label col-md-4 text-left"> Category </label>
-										<div class="col-md-6">
-										  <input  type='text' name='category' id='category' value='{{ $row['category'] }}' 
-						     class='form-control form-control-sm ' /> 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group row  " >
-										<label for="Defination" class=" control-label col-md-4 text-left"> Defination </label>
-										<div class="col-md-6">
-										  <input  type='text' name='defination' id='defination' value='{{ $row['defination'] }}' 
-						     class='form-control form-control-sm ' /> 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group row  " >
-										<label for="Select Option" class=" control-label col-md-4 text-left"> Select Option </label>
+										<label for="Image" class=" control-label col-md-4 text-left"> Image </label>
 										<div class="col-md-6">
 										  
-					<?php $select_option = explode(',',$row['select_option']);
-					$select_option_opt = array( 'Floors cleaning' => 'Floors cleaning' ,  'Window cleaning' => 'Window cleaning' ,  'Carpet cleaning' => 'Carpet cleaning' ,  'Washroom cleaning' => 'Washroom cleaning' , ); ?>
-					<select name='select_option' rows='5'   class='select2 '  > 
-						<?php 
-						foreach($select_option_opt as $key=>$val)
-						{
-							echo "<option  value ='$key' ".($row['select_option'] == $key ? " selected='selected' " : '' ).">$val</option>"; 						
-						}						
-						?></select> 
+						<div class="fileUpload btn " > 
+						    <span>  <i class="fa fa-camera"></i>  </span>
+						    <div class="title"> Browse File </div>
+						    <input type="file" name="image" class="upload"   accept="image/x-png,image/gif,image/jpeg"     />
+						</div>
+						<div class="image-preview preview-upload">
+							{!! SiteHelpers::showUploadedFile( $row["image"],"/uploads/images/service") !!}
+						</div>
+					 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group row  " >
+										<label for="Short Description" class=" control-label col-md-4 text-left"> Short Description </label>
+										<div class="col-md-6">
+										  <textarea name='short_description' rows='5' id='short_description' class='form-control form-control-sm '  
+				           >{{ $row['short_description'] }}</textarea> 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group row  " >
+										<label for="Description" class=" control-label col-md-4 text-left"> Description </label>
+										<div class="col-md-6">
+										  <textarea name='description' rows='5' id='editor' class='form-control form-control-sm editor '  
+						 >{{ $row['description'] }}</textarea> 
 										 </div> 
 										 <div class="col-md-2">
 										 	
@@ -111,13 +110,16 @@
 		
 		
 		
-		$("#status").jCombo("{!! url('category/comboselect?filter=status:id:title') !!}",
+		$("#category_id").jCombo("{!! url('ourservices/comboselect?filter=category:id:category') !!}",
+		{  selected_value : '{{ $row["category_id"] }}' });
+		
+		$("#status").jCombo("{!! url('ourservices/comboselect?filter=status:id:title') !!}",
 		{  selected_value : '{{ $row["status"] }}' });
 		 	
 		 	 
 
 		$('.removeMultiFiles').on('click',function(){
-			var removeUrl = '{{ url("category/removefiles?file=")}}'+$(this).attr('url');
+			var removeUrl = '{{ url("ourservices/removefiles?file=")}}'+$(this).attr('url');
 			$(this).parent().remove();
 			$.get(removeUrl,function(response){});
 			$(this).parent('div').empty();	

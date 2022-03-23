@@ -1,28 +1,28 @@
 <?php namespace App\Http\Controllers;
 
-use App\Models\Ourservice;
+use App\Models\Ourservices;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Validator, Input, Redirect ; 
 
 
-class OurserviceController extends Controller {
+class OurservicesController extends Controller {
 
 	protected $layout = "layouts.main";
 	protected $data = array();	
-	public $module = 'ourservice';
+	public $module = 'ourservices';
 	static $per_page	= '50';
 
 	public function __construct()
 	{		
 		parent::__construct();
-		$this->model = new Ourservice();	
+		$this->model = new Ourservices();	
 		
 		$this->info = $this->model->makeInfo( $this->module);	
 		$this->data = array(
 			'pageTitle'	=> 	$this->info['title'],
 			'pageNote'	=>  $this->info['note'],
-			'pageModule'=> 'ourservice',
+			'pageModule'=> 'ourservices',
 			'return'	=> self::returnUrl()
 			
 		);
@@ -173,8 +173,8 @@ class OurserviceController extends Controller {
 	public static function display(  )
 	{
 		$mode  = isset($_GET['view']) ? 'view' : 'default' ;
-		$model  = new Ourservice();
-		$info = $model::makeInfo('ourservice');
+		$model  = new Ourservices();
+		$info = $model::makeInfo('ourservices');
 		$data = array(
 			'pageTitle'	=> 	$info['title'],
 			'pageNote'	=>  $info['note']			
@@ -188,7 +188,7 @@ class OurserviceController extends Controller {
 				$data['row'] =  $row;
 				$data['fields'] 		=  \SiteHelpers::fieldLang($info['config']['grid']);
 				$data['id'] = $id;
-				return view('ourservice.public.view',$data);			
+				return view('ourservices.public.view',$data);			
 			}			
 		} 
 		else {
@@ -212,7 +212,7 @@ class OurserviceController extends Controller {
 			$pagination->setPath('');
 			$data['i']			= ($page * $params['limit'])- $params['limit']; 
 			$data['pagination'] = $pagination;
-			return view('ourservice.public.index',$data);	
+			return view('ourservices.public.index',$data);	
 		}
 
 	}

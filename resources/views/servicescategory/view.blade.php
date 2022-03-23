@@ -7,13 +7,13 @@
 	<div class="row">
 		<div class="col-md-6 ">
 			@if($access['is_add'] ==1)
-	   		<a href="{{ url('category/'.$id.'/edit?return='.$return) }}" class="tips btn btn-default btn-sm  " title="{{ __('core.btn_edit') }}"><i class="fa  fa-pencil"></i></a>
+	   		<a href="{{ url('servicescategory/'.$id.'/edit?return='.$return) }}" class="tips btn btn-default btn-sm  " title="{{ __('core.btn_edit') }}"><i class="fa  fa-pencil"></i></a>
 			@endif
-			<a href="{{ url('category?return='.$return) }}" class="tips btn btn-default  btn-sm  " title="{{ __('core.btn_back') }}"><i class="fa  fa-times"></i></a>		
+			<a href="{{ url('servicescategory?return='.$return) }}" class="tips btn btn-default  btn-sm  " title="{{ __('core.btn_back') }}"><i class="fa  fa-times"></i></a>		
 		</div>
 		<div class="col-md-6 text-right">			
-	   		<a href="{{ ($prevnext['prev'] != '' ? url('category/'.$prevnext['prev'].'?return='.$return ) : '#') }}" class="tips btn btn-default  btn-sm"><i class="fa fa-arrow-left"></i>  </a>	
-			<a href="{{ ($prevnext['next'] != '' ? url('category/'.$prevnext['next'].'?return='.$return ) : '#') }}" class="tips btn btn-default btn-sm "> <i class="fa fa-arrow-right"></i>  </a>					
+	   		<a href="{{ ($prevnext['prev'] != '' ? url('servicescategory/'.$prevnext['prev'].'?return='.$return ) : '#') }}" class="tips btn btn-default  btn-sm"><i class="fa fa-arrow-left"></i>  </a>	
+			<a href="{{ ($prevnext['next'] != '' ? url('servicescategory/'.$prevnext['next'].'?return='.$return ) : '#') }}" class="tips btn btn-default btn-sm "> <i class="fa fa-arrow-right"></i>  </a>					
 		</div>	
 
 		
@@ -64,7 +64,7 @@
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('Status', (isset($fields['status']['language'])? $fields['status']['language'] : array())) }}</td>
-						<td>{{ $row->status}} </td>
+						<td>{{ SiteHelpers::formatLookUp($row->status,'status','1:status:id:title') }} </td>
 						
 					</tr>
 				

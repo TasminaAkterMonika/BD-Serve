@@ -249,18 +249,9 @@ public function savecareer(Request $request ){
 		return view('layouts.default.template.faq', $data);
     }
 
-    public function testimonial_s(){
-        $data['title'] = 'Testimonial';
-        
-		$data['testimonials'] = testimonial::where('status', 1)->orderBy('id', 'DESC')->get();
-		$data['setting'] = Websitesettings::where('id', 1)->first();
-		return view('layouts.default.template.testimonial', $data);
-    }
-
     public function service(){
         $data['title'] = 'Services';
-		$data['services'] = ourservice::where('status', 1)->orderBy('id', 'DESC')->get();
-        $data['categorys'] = category::where('status', 1)->orderBy('id', 'DESC')->get();
+		$data['services'] = DB::table('our_service')->where('status', 1)->orderBy('title', 'DESC')->get();
 		$data['setting'] = Websitesettings::where('id', 1)->first();
 		return view('layouts.default.template.ourservice', $data);
     }

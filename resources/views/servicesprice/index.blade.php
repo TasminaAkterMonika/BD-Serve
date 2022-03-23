@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-md-8"> 	
 			@if($access['is_add'] ==1)
-			<a href="{{ url('category/create?return='.$return) }}" class="btn btn-default btn-sm"  
+			<a href="{{ url('servicesprice/create?return='.$return) }}" class="btn btn-default btn-sm"  
 				title="{{ __('core.btn_create') }}"><i class=" fa fa-plus "></i> Create New </a>
 			@endif
 
@@ -61,7 +61,7 @@
 
 			<!-- Table Grid -->
 			
- 			{!! Form::open(array('url'=>'category?'.$return, 'class'=>'form-horizontal m-t' ,'id' =>'SximoTable' )) !!}
+ 			{!! Form::open(array('url'=>'servicesprice?'.$return, 'class'=>'form-horizontal m-t' ,'id' =>'SximoTable' )) !!}
 			
 		    <table class="table  table-hover " id="{{ $pageModule }}Table">
 		        <thead>
@@ -101,10 +101,10 @@
 								  <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"> <i class="fa fa-ellipsis-h"></i> </button>
 								  <ul class="dropdown-menu">
 								 	@if($access['is_detail'] ==1)
-									<li class="nav-item"><a href="{{ url('category/'.$row->id.'?return='.$return)}}" class="nav-link tips" title="{{ __('core.btn_view') }}"> {{ __('core.btn_view') }} </a></li>
+									<li class="nav-item"><a href="{{ url('servicesprice/'.$row->id.'?return='.$return)}}" class="nav-link tips" title="{{ __('core.btn_view') }}"> {{ __('core.btn_view') }} </a></li>
 									@endif
 									@if($access['is_edit'] ==1)
-									<li class="nav-item"><a  href="{{ url('category/'.$row->id.'/edit?return='.$return) }}" class="nav-link  tips" title="{{ __('core.btn_edit') }}"> {{ __('core.btn_edit') }} </a></li>
+									<li class="nav-item"><a  href="{{ url('servicesprice/'.$row->id.'/edit?return='.$return) }}" class="nav-link  tips" title="{{ __('core.btn_edit') }}"> {{ __('core.btn_edit') }} </a></li>
 									@endif
 									<div class="dropdown-divider"></div>
 									@if($access['is_remove'] ==1)
