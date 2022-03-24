@@ -6,9 +6,10 @@
         <div class="intro-area intro-area-4 ">
            <div class="main-overly"></div>
             <div class="intro-carousel">
+            @foreach(DB::table('banner')->where('status',1)->get() as $banner)
                 <div class="intro-content">
                     <div class="slider-images">
-                        <img src="img/slider/s1.jpg" alt="">
+                        <img src="{{ asset('uploads') }}/images/banner/{{ $banner->image }}" alt="">
                     </div>
                     <div class="slider-content">
                         <div class="display-table">
@@ -18,15 +19,15 @@
                                         <div class="col-md-12">
                                             <!-- layer 1 -->
                                             <div class="layer-1">
-                                                <h1 class="title2">Cleanhome <span class="color">success</span> in every projects</h1>
+                                                <h1>{!!$banner->title!!}</h1>
                                             </div>
                                             <!-- layer 2 -->
                                             <div class="layer-2 ">
-                                                <p>A Cleaning company services is provides professional services.</p>
+                                                <p>{!!$banner->short_title!!}</p>
                                             </div>
                                             <!-- layer 3 -->
                                             <div class="layer-3">
-                                                <a href="#" class="ready-btn left-btn" >Our Services</a>
+                                                <a href="{{ route('services',$our_service->id)}}" class="ready-btn left-btn" >Our Services</a>
                                                 <a href="order-from.html" class="ready-btn right-btn" >Book now</a>
                                             </div>
                                         </div>
@@ -36,36 +37,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="intro-content">
-                    <div class="slider-images">
-                        <img src="img/slider/s2.jpg" alt="">
-                    </div>
-                    <div class="slider-content">
-                        <div class="display-table">
-                            <div class="display-table-cell">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <!-- layer 1 -->
-                                            <div class="layer-1">
-                                                <h1 class="title2"><span class="color">Cleanhome</span> company is provides services</h1>
-                                            </div>
-                                            <!-- layer 2 -->
-                                            <div class="layer-2 ">
-                                                <p>A Cleaning company services is provides professional services.</p>
-                                            </div>
-                                            <!-- layer 3 -->
-                                            <div class="layer-3">
-                                                <a href="#" class="ready-btn left-btn" >Our Services</a>
-                                                <a href="#" class="ready-btn right-btn" >Contact us</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                 @endforeach
             </div>
         </div>
         <!-- End Appointment Area -->
@@ -292,67 +264,25 @@
 					</div>
 				</div>
                 <div class="row">
+                 @foreach(DB::table('why_us')->where('status',1)->get() as $why_us)
                     <!-- single-well end-->
                     <div class="col-md-3 col-sm-4 col-xs-12">
                         <div class="well-services text-center">
                             <div class="services-img">
-                                <a href="#"><i class="flaticon-cleaning-6"></i></a>
+                                <a href="#"><i class="{{$why_us->icon}}"></i></a>
                             </div>
                             <div class="main-services">
                                 <div class="service-content">
-                                    <h4>Expert Employee</h4>
-                                    <p>Aspernatur sit adipisci quaerat unde at neque Redug Lagre dolor sit amet consectetu.</p>
+                                    <h4>{{$why_us->title}}</h4>
+                                    <p>{!!$why_us->description!!}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- single-well end-->
-                    <div class="col-md-3 col-sm-4 col-xs-12">
-                        <div class="well-services text-center">
-                            <div class="services-img">
-                                <a href="#"><i class="flaticon-cleaning-8"></i></a>
-                            </div>
-                            <div class="main-services">
-                                <div class="service-content">
-                                    <h4>Secure Services</h4>
-                                    <p>Aspernatur sit adipisci quaerat unde at neque Redug Lagre dolor sit amet consectetu.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single-well end-->
-                    <div class="col-md-3 col-sm-4 col-xs-12">
-                        <div class="well-services text-center">
-                            <div class="services-img">
-                                <a href="#"><i class="flaticon-spray"></i></a>
-                            </div>
-                            <div class="main-services">
-                                <div class="service-content">
-                                    <h4>Low Costing</h4>
-                                    <p>Aspernatur sit adipisci quaerat unde at neque Redug Lagre dolor sit amet consectetu.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single-well end -->
-                    <div class="col-md-3 hidden-sm col-xs-12">
-                        <div class="well-services text-center">
-                            <div class="services-img">
-                                <a href="#"><i class="flaticon-sweeping-3"></i></a>
-                            </div>
-                            <div class="main-services">
-                                <div class="service-content">
-                                    <h4>On time Finished</h4>
-                                    <p>Aspernatur sit adipisci quaerat unde at neque Redug Lagre dolor sit amet consectetu.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single-well end -->
+                    @endforeach
                 </div>
             </div>
         </div>
-        <!-- service-area end -->
        	<!-- Start portfolio Area -->
 		<div class="project-area area-padding">
 			<div class="container">
@@ -379,144 +309,48 @@
 						</div>
 					</div>
                     <div class="project-content">
+                        @foreach(DB::table('projectdetails')->where('status',1)->get() as $projectdetails)
                         <!-- single-awesome-project start -->
                         <div class="project-single all-padding commercial">
+                         
                             <div class="single-awesome-project">
+
                                 <div class="awesome-img">
                                     <a class="venobox" data-gall="myGallery" href="img/project/1.jpg">
-                                        <img src="img/project/1.jpg" alt="" />
+                                        <img src="{{ asset('uploads')}}/images/project/{{ $projectdetails->image}}" alt="" />
                                         <div class="add-actions text-center">
                                             <div class="project-dec">
-                                                <h4>Nice project</h4>
-                                                <span>Commercial</span>
+                                                <h4>{{ $projectdetails->title}}</h4>
+                                                <span>{{ $projectdetails->category}}</span>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <!-- single-awesome-project end -->
-                        <!-- single-awesome-project start -->
-                        <div class="project-single all-padding residential">
-                            <div class="single-awesome-project">
-                                <div class="awesome-img">
-                                    <a class="venobox" data-gall="myGallery" href="img/project/2.jpg">
-                                        <img src="img/project/2.jpg" alt="" />
-                                        <div class="add-actions text-center">
-                                            <div class="project-dec">
-                                                <h4>Nice project</h4>
-                                                <span>Residential</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single-awesome-project end -->
-                        <!-- single-awesome-project start -->
-                        <div class="project-single all-padding residential">
-                            <div class="single-awesome-project">
-                                <div class="awesome-img">
-                                    <a class="venobox" data-gall="myGallery" href="img/project/3.jpg">
-                                        <img src="img/project/3.jpg" alt="" />
-                                        <div class="add-actions text-center">
-                                            <div class="project-dec">
-                                                <h4>Nice project</h4>
-                                                <span>Residential</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single-awesome-project end -->
-                        <!-- single-awesome-project start -->
-                        <div class="project-single all-padding apartment">
-                            <div class="single-awesome-project">
-                                <div class="awesome-img">
-                                    <a class="venobox" data-gall="myGallery" href="img/project/4.jpg">
-                                        <img src="img/project/4.jpg" alt="" />
-                                        <div class="add-actions text-center">
-                                            <div class="project-dec">
-                                                <h4>Nice project</h4>
-                                                <span>Apartment</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single-awesome-project end -->
-                        <!-- single-awesome-project start -->
-                        <div class="project-single all-padding commercial">
-                            <div class="single-awesome-project">
-                                <div class="awesome-img">
-                                    <a class="venobox" data-gall="myGallery" href="img/project/5.jpg">
-                                        <img src="img/project/5.jpg" alt="" />
-                                        <div class="add-actions text-center">
-                                            <div class="project-dec">
-                                                <h4>Nice project</h4>
-                                                <span>commercial</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single-awesome-project end -->
-                        <!-- single-awesome-project start -->
-                        <div class="project-single all-padding apartment">
-                            <div class="single-awesome-project">
-                                <div class="awesome-img">
-                                    <a class="venobox" data-gall="myGallery" href="img/project/6.jpg">
-                                        <img src="img/project/6.jpg" alt="" />
-                                        <div class="add-actions text-center">
-                                            <div class="project-dec">
-                                                <h4>Nice project</h4>
-                                                <span>Apartment</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single-awesome-project end -->
+                          @endforeach
                     </div>
 				</div>	
 			</div>
 			<!-- End main content -->
 		</div>
+        </div>
 		<!-- End portfolio Area -->
-        <!-- Start Counter area -->
+       
 		<div class="counter-area area-padding parallax-bg" data-stellar-background-ratio="0.6">
-		    <div class="container">
+		    <div class="container-fluid">
 		        <div class="row">
 		            <div class="col-md-12 col-sm-12">
 		                <div class="about-count">
                            <div class="fun-content">
+                           @foreach(DB::table('counter')->where('status',1)->get() as $counter)
                                 <div class="fun_text">
-                                    <a href="#"><i class="icon icon-diamond"></i></a>
-                                    <span class="counter">13000</span>
-                                    <h5>Complete Projects</h5>
+                                    <a href="#"><i class="{{$counter->icon}}"></i></a>
+                                    <span class="counter">{{$counter->number}}</span>
+                                    <h5>{{$counter->title}}</h5>
                                 </div>
                                 <!-- fun_text  -->
-                                <div class="fun_text">
-                                    <a href="#"><i class="icon icon-star"></i></a>
-                                    <span class="counter">4500</span>
-                                    <h5>Happy Clients</h5>
-                                </div>
-                                <!-- fun_text  -->
-                                <div class="fun_text">
-                                    <a href="#"><i class="icon icon-layers"></i></a>
-                                    <span class="counter">104</span>
-                                    <h5>Present Projects</h5>
-                                </div>
-                                <!-- fun_text  -->
-                                <div class="fun_text">
-                                    <a href="#"><i class="icon icon-users"></i></a>
-                                    <span class="counter">4300</span>
-                                    <h5>Total Employee</h5>
-                                </div>
+                                 @endforeach
                             </div>
                         </div>
 		            </div>
@@ -536,42 +370,44 @@
                     </div>
                 </div>
                 <div class="row">
+                 @foreach(DB::table('blogdetails')->where('status',1)->get() as $blogdetails)
                     <div class="blog-grid home-blog">
                         <!-- Start single blog -->
                         <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="single-blog">
                                 <div class="blog-image">
-                                    <a class="image-scale" href="#">
-                                        <img src="img/blog/1.jpg" alt="">
+                                    <a class="image-scale" href="{{ route('single.blog',$blogdetails->id)}}">
+                                        <img src="{{ asset('uploads')}}/images/blog/{{ $blogdetails->image }}" alt="">
                                     </a>
                                 </div>
                                 <div class="blog-content">
                                    <div class="blog-title">
                                        <div class="blog-meta">
                                             <span class="date-type">
-                                                20 june, 2017
+                                                 {{$blogdetails->date}}
                                             </span>
                                             <span class="comments-type">
                                                 <i class="fa fa-comment-o"></i>
-                                                21
+                                                {{$blogdetails->comment}}
                                             </span>
                                         </div>
                                         <a href="#">
-                                            <h4>Cleaning services system</h4>
+                                            <h4>{!!$blogdetails->title!!}</h4>
                                         </a>
                                     </div>
                                     <div class="blog-text">
-                                        <p>Redug Lagre dolor sit amet, consectetur adipisicing elit. Minima in nostrum, veniam. Esse est assumenda inventore.</p>
-                                        <a class="blog-btn" href="#">Read more</a>
+                                        <p>{{$blogdetails->short_description}}</p>
+                                        <a class="blog-btn" href="{{ route('single.blog',$blogdetails->id)}}">Read more</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
                 <!-- End row -->
             </div>
         </div>
-        <!--End of Blog Area-->
-        <!-- Start Banner Area -->
+        </div>
+       
     

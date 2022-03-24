@@ -74,4 +74,19 @@ Route::resource('servicescategory','ServicescategoryController');
 Route::resource('servicesprice','ServicespriceController');
 // End Routes for servicesprice 
 
+                    
+// Start Routes for whyus 
+Route::resource('whyus','WhyusController');
+// End Routes for whyus 
+
+                    
+// Start Routes for banner 
+Route::resource('banner','BannerController');
+// End Routes for banner 
+
+                    
+// Start Routes for counter 
+Route::resource('counter','CounterController');
+// End Routes for counter 
+
                     ?>

@@ -64,20 +64,17 @@
                                             <li><a class="pagess" href="/">Home</a>
                                                 
                                             </li>
-                                            <li><a class="pagess" href="#">About us</a>
+                                            <li><a class="pagess" href="{{ route('about') }}">About us</a>
                                                 <ul class="sub-menu">
                                                     <li><a href="{{ route('about') }}">About us</a></li>
                                                     <li><a href="{{route('our.team')}}">Team</a></li>
                                                     <li><a href="{{route('review.s')}}">Review</a></li>
                                                     <li><a href="{{route('faq.s')}}">FAQ</a></li>
-                                                    {{-- <li><a href="error.html">Error</a></li> --}}
+                                                  
                                                 </ul>
                                             </li>
                                             <li><a class="pagess" href="{{route('services')}}">Services</a>
-                                                {{-- <ul class="sub-menu">
-                                                    <li><a href="services.html">Services</a></li>
-                                                    <li><a href="single-service.html">Single Services</a></li>
-                                                </ul> --}}
+
                                             </li>
                                             <li><a class="pagess" href="{{route('projects')}}">Projects</a>
                                               

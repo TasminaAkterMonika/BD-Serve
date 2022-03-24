@@ -835,6 +835,7 @@ div#preloader {
 .intro-content {
     position: relative;
     z-index: 1;
+    height: 106%;
 }
 
 .intro-content::after {
@@ -1457,6 +1458,7 @@ div#preloader {
     border: 1px solid #63c672;
     border-radius: 50%;
     background: #63c672;
+    padding: 18px;
 }
 
 .fun_text {
