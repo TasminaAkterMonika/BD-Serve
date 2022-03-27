@@ -1,6 +1,9 @@
 @include('layouts.default.header')
 <body>
 <div class="boxed_wrapper">
+@include('layouts.default.navigation')
+<body>
+<div class="boxed_wrapper">
         <div class="page-area">
             <div class="breadcumb-overlay"></div>
             <div class="container">

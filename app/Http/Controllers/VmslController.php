@@ -258,11 +258,11 @@ public function savecareer(Request $request ){
  
     public function singleService($id){
         $service = ourservice::find($id);
-        $data['title'] = $service->service_name;
+        $data['title'] = $service->title;
         $data['service'] = $service;
 		$data['services'] = ourservice::where('status', 1)->orderBy('id', 'DESC')->get();
 		$data['setting'] = Websitesettings::where('id', 1)->first();
-		return view('layouts.default.template.service-details', $data);
+		return view('layouts.default.template.service.details', $data);
     }
     
     public function blog_details(){

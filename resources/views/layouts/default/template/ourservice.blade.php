@@ -76,7 +76,7 @@
                                 <div class="service-content">
                                     <h4>{{$our_service->title}}</h4>
                                     <p>{{$our_service->short_description}}</p>
-                                    <a class="service-btn" href="#">read more</a>
+                                    <a class="service-btn" href="{{route('service.details',$our_service->id)}}">read more</a>
                                 </div>
                             </div>
                           

@@ -6,9 +6,9 @@
                         <div class=" col-md-8 col-sm-6">
                             <div class="topbar-left">
                                 <ul>
-                                    <li><a href="#"><i class="icon icon-map-marker"></i>{!!$setting->address!!}</a></li>
+                                    {{-- <li><a href="#"><i class="icon icon-map-marker"></i>{!!$setting->address!!}</a></li> --}}
                                     <li><a href="#"><i class="icon icon-phone"></i>{!!$setting->phone!!}</a></li>
-                                    <li><a href="#"><i class="icon icon-clock"></i>{!!$setting->hours!!}</a></li>
+                                    <li><a href="#"><i class="icon icon-envelope"></i>{!!$setting->email!!}</a></li>
                                 </ul>  
                             </div>
                         </div>

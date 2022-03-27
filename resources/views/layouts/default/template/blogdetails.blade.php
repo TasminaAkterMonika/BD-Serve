@@ -65,7 +65,7 @@
                             <!-- End row -->
                         </div>
                         <!-- End main column -->
-                        <div class="col-md-4 col-sm-4 col-xs-12">
+                        {{-- <div class="col-md-4 col-sm-4 col-xs-12">
                             <div class="left-head-blog">
                                 <div class="left-blog-page">
                                     <!-- search option start -->
@@ -214,7 +214,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- End left sidebar -->
                     </div>
                 </div>
