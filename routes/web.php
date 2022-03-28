@@ -114,6 +114,8 @@ Route::get('single/project/{id}','VmslController@single_project')->name('single.
 
 Route::get('contacts','VmslController@contact_us')->name('contacts');
 
-Route::get('order','VmslController@contact_us')->name('order');
-
 Route::get('category-s','VmslController@category_s')->name('category.s');
+
+Route::get('order-from','VmslController@order_from')->name('order.from');
+
+Route::post('submitcontactrequest','VmslController@store_contact_request')->name('submit.contact.request');

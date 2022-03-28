@@ -1142,7 +1142,7 @@ div#preloader {
     height: 40px;
     background: #b37e11;
     border-radius: 3px;
-    padding: 10px;
+    padding: 0px 11px 17px;
 }
 
 .single-about h5 {
@@ -1458,7 +1458,7 @@ div#preloader {
     border: 1px solid #b37e11;
     border-radius: 50%;
     background: #b37e11;
-    padding: 18px;
+    padding: 0px;
 }
 
 .fun_text {

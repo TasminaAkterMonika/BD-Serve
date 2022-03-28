@@ -32,9 +32,8 @@
 							<div class="awesome-menu text-center">
 								<ul class="project-menu">
 									<li><a href="#" class="active" data-filter="*" >All</a></li>
+                                    
 									<li><a href="#" data-filter=".residential">Residential Cleaning</a></li>
-									<li><a href="#" data-filter=".commercial">Commercial Cleaning</a></li>
-									<li><a href="#" data-filter=".apartment">Apartment Cleaning</a></li>
 								</ul>				
 							</div>
 						</div>

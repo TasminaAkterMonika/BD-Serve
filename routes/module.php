@@ -89,4 +89,9 @@ Route::resource('banner','BannerController');
 Route::resource('counter','CounterController');
 // End Routes for counter 
 
+                    
+// Start Routes for contactrequest 
+Route::resource('contactrequest','ContactrequestController');
+// End Routes for contactrequest 
+
                     ?>

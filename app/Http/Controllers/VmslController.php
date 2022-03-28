@@ -6,24 +6,20 @@ use Illuminate\Http\Request;
 use App\Models\Cit;
 use DB;
 use App\Models\Upcoming;
-use App\Models\Ourclients;
-use App\Models\Ourgallary;
 use App\Models\aboutus;
 use App\Models\ourteam;
 use App\Models\review;
 use App\Models\faq;
-use App\Models\business;
-use App\Models\ourservice;
+use App\Models\ourservices;
 use App\Models\blogdetails;
-use App\Models\testimonial;
 use App\Models\projectdetails;
-use App\Models\shopdetails;
 use App\Models\contactus;
+use App\Models\orderfrom;
 use App\Models\Core\Users;
-
-use App\Models\ourachivement;
 use App\Models\Websitesettings;
 use App\Models\Vacancyannouncement;
+use App\Models\Contactrequest;
+
 use App\Notifications\arifPasswordResetNotification;
 use Hash;
 use Helper;
@@ -257,12 +253,12 @@ public function savecareer(Request $request ){
     }
  
     public function singleService($id){
-        $service = ourservice::find($id);
+        $service = ourservices::find($id);
         $data['title'] = $service->title;
         $data['service'] = $service;
-		$data['services'] = ourservice::where('status', 1)->orderBy('id', 'DESC')->get();
+		$data['services'] = ourservices::where('status', 1)->orderBy('id', 'DESC')->get();
 		$data['setting'] = Websitesettings::where('id', 1)->first();
-		return view('layouts.default.template.service.details', $data);
+		return view('layouts.default.template.service-details', $data);
     }
     
     public function blog_details(){
@@ -306,6 +302,12 @@ public function savecareer(Request $request ){
 		return view('layouts.default.template.contactus', $data);
     }
 
+    public function order_from(){
+        $data['title'] = 'Order From';
+		$data['setting'] = Websitesettings::where('id', 1)->first();
+		return view('layouts.default.template.orderfrom', $data);
+    }
+
 	public function career(){
 	    $data['title'] = 'Career';
 	    $data['setting'] =  Websitesettings::where('id', 1)->first();
@@ -323,4 +325,18 @@ public function savecareer(Request $request ){
 	        return view('errors.404');
 	    }
 	}
+
+    public function store_contact_request(Request $request){
+
+        $contact  = new Contactrequest();
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->phone = $request->phone;
+        $contact->subject = $request->msg_subject;
+        $contact->message = $request->message;
+        $contact->subject = $request->selecttext;
+        $contact->save();
+
+        return "success";
+    }
 }?>

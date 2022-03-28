@@ -28,7 +28,7 @@
                                             <!-- layer 3 -->
                                             <div class="layer-3">
                                                 <a href="{{ route('services',$our_service->id)}}" class="ready-btn left-btn" >Our Services</a>
-                                                <a href="order-from.html" class="ready-btn right-btn" >Book now</a>
+                                                <a href="{{route('order.from')}}" class="ready-btn right-btn" >Book now</a>
                                             </div>
                                         </div>
                                     </div>
@@ -180,28 +180,26 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="row">
-                                    <form id="contactForm" method="POST" action="http://rockstheme.com/rocks/preview-cleanhome/contact.php" class="contact-form">
+                                    <form id="contactForm" method="POST" action="" class="contact-form">
+                                        @csrf
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="name" class="form-control" placeholder="Name" required data-error="Please enter your name">
+                                            <input type="text" id="name" name="name" class="form-control" placeholder="Name" required data-error="Please enter your name">
                                             <div class="help-block with-errors"></div>
-                                            <input type="email" class="email form-control" id="email" placeholder="Email" required data-error="Please enter your email">
+                                            <input type="email" name="email" class="email form-control" id="email" placeholder="Email" required data-error="Please enter your email">
                                             <div class="help-block with-errors"></div>
-                                            <input type="number" class="form-control" id="phone" placeholder="phone number" required data-error="Please enter your Phone number">
+                                            <input type="number" name="phone_number" class="form-control" id="phone" placeholder="phone number" required data-error="Please enter your Phone number">
                                             <div class="help-block with-errors"></div>
-                                            <select>
-                                                <option value="position">Apartment Cleaning</option>
-                                                <option value="position">Commercial Cleaning</option>
-                                                <option value="position">Residential Cleaning</option>
-                                                <option value="position">Carpet Cleaning</option>
-                                                <option value="position">Window Cleaning</option>
-                                                <option value="position">After Renovation</option>
-                                                <option value="position">Maid Services</option>
+                                            <select name="subject">
+                                                @foreach(DB::TABLE('our_service')->WHERE('status',1)->GET() as $row)
+                                                <option value="{{$row->title}}">{{$row->title}}</option>
+                                                @endforeach
                                             </select>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea id="message" rows="7" placeholder="Massage" class="form-control" required data-error="Write your message"></textarea>
+                                            <textarea id="message" name="message" rows="7" placeholder="Massage" class="form-control" required data-error="Write your message"></textarea>
                                             <div class="help-block with-errors"></div>
+                                            {{-- <input type="submit" class="quote-btn" name="submit" value="Submit" /> --}}
                                             <button type="submit" id="submit" class="quote-btn">Submit</button>
                                             <div id="msgSubmit" class="h3 text-center hidden"></div> 
                                             <div class="clearfix"></div>

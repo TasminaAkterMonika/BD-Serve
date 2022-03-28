@@ -148,7 +148,7 @@
         <!-- meanmenu js -->
         <script src="{{ asset('assets') }}/js/jquery.meanmenu.js"></script>
 		<!-- Form validator js -->
-		<script src="{{ asset('assets') }}/js/form-validator.min.js"></script>
+		{{-- <script src="{{ asset('assets') }}/js/form-validator.min.js"></script> --}}
 		<!-- plugins js -->
 		<script src="{{ asset('assets') }}/js/plugins.js"></script>
 		<!-- main js -->

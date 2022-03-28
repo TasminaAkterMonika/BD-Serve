@@ -15,7 +15,7 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="topbar-right">
                                <div class="quote-button">
-                                    <a href="order-from.html" class="quote-btn">Book Now</a>
+                                    <a href="{{route('order.from')}}" class="quote-btn">Book Now</a>
                                 </div>
                                 <ul>
                                     <li><a href="#"><i class="fa fa-skype"></i></a></li>
