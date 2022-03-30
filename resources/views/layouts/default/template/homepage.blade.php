@@ -84,14 +84,14 @@
                                     	<a href="#"><i class="{!!$about_us->certified_icon!!}"></i></a>
                                         <h5>Certified company</h5>
                                     </div>
-									<p>The phrasal sequence of the Lorem Ipsum text is now so widespread</p>
+									<p>{!!$about_us->certified!!}</p>
                                 </div>
                                 <div class="single-about">
                                     <div class="icon-title">
 										<a href="#"><i class="{!!$about_us->e_icon!!}"></i></a>
 										<h5>Our experience</h5>
                                     </div>
-                                    <p>The phrasal sequence of the Lorem Ipsum text is now so widespread</p>
+                                    <p>{!!$about_us->experience!!}</p>
                                 </div>
                             </div>
                         </div>
@@ -137,7 +137,7 @@
                                 <div class="service-content">
                                     <h4>{{$our_service->title}}</h4>
                                     <p>{{$our_service->short_description}}</p>
-                                    <a class="service-btn" href="#">read more</a>
+                                    <a class="service-btn" href="{{route('service.details',$our_service->id)}}">read more</a>
                                 </div>
                             </div>
                         </div>
@@ -165,13 +165,13 @@
 									<div class="quote-locate">
 										<div class="quote-icon">
 											<i class="icon icon-map-marker"></i>
-											<span class="info-first">House-34,22/2 avenue</span>
-											<span class="info-simple">London, United Kingdom</span>
+											<span class="info-first">{!!$setting->address!!}</span>
+											
 										</div>
 										<div class="quote-icon">
 											<i class="icon icon-phone"></i>
-											<span class="info-first">+013 654 43245</span>
-											<span class="info-simple">info@cleaningss.com</span>
+											<span class="info-first">{!!$setting->phone!!}</span>
+											<span class="info-simple">{!!$setting->email!!}</span>
 										</div>
 									</div>
 								</div>
@@ -282,7 +282,7 @@
             </div>
         </div>
        	<!-- Start portfolio Area -->
-		<div class="project-area area-padding">
+		{{-- <div class="project-area area-padding">
 			<div class="container">
 			    <div class="row">
 					<div class="col-md-12 col-sm-12 col-xs-12">
@@ -331,7 +331,7 @@
 				</div>	
 			</div>
 			<!-- End main content -->
-		</div>
+		</div> --}}
         </div>
 		<!-- End portfolio Area -->
        

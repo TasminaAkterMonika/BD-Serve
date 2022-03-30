@@ -98,7 +98,7 @@ Route::get('review-s','VmslController@review_s')->name('review.s');
 
 Route::get('faq-s','VmslController@faq_s')->name('faq.s');
 
-Route::get('projects','VmslController@project_details')->name('projects');
+// Route::get('projects','VmslController@project_details')->name('projects');
 
 Route::get('testimonial-s','VmslController@testimonial_s')->name('testimonial.s');
 
@@ -119,3 +119,5 @@ Route::get('category-s','VmslController@category_s')->name('category.s');
 Route::get('order-from','VmslController@order_from')->name('order.from');
 
 Route::post('submitcontactrequest','VmslController@store_contact_request')->name('submit.contact.request');
+
+Route::post('submitorderrequest','VmslController@store_order_request')->name('submit.order.request');

@@ -18,11 +18,11 @@
                                     <a href="{{route('order.from')}}" class="quote-btn">Book Now</a>
                                 </div>
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="{!!$setting->facebook!!}"><i class="fa fa-skype"></i></a></li>
+                                    <li><a href="{!!$setting->twitter!!}"><i class="fa fa-pinterest"></i></a></li>
+                                    <li><a href="{!!$setting->google!!}"><i class="fa fa-google"></i></a></li>
+                                    <li><a href="{!!$setting->twitter!!}"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="{!!$setting->facebook!!}"><i class="fa fa-facebook"></i></a></li>
                                 </ul> 
                             </div>
                         </div>
@@ -75,8 +75,8 @@
                                             </li>
                                             <li><a class="pagess" href="{{route('services')}}">Services</a>
 
-                                            </li>
-                                            <li><a class="pagess" href="{{route('projects')}}">Projects</a>
+                                            {{-- </li>
+                                            <li><a class="pagess" href="{{route('projects')}}">Projects</a> --}}
                                               
                                             </li>
                                             <li><a class="pagess" href="{{route('blogs')}}">Blog</a>

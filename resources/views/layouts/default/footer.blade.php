@@ -68,7 +68,7 @@
 												</a>
 											</li>
 											<li>
-												<a href{!!$setting->google!!}">
+												<a href="{!!$setting->google!!}">
 													<i class="fa fa-google"></i>
 												</a>
 											</li>

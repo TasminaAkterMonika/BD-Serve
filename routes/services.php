@@ -94,4 +94,9 @@ Route::resource('services/counter','Services\CounterController');
 Route::resource('services/contactrequest','Services\ContactrequestController');
 // End Routes for contactrequest 
 
+                    
+// Start Routes for orderrequest 
+Route::resource('services/orderrequest','Services\OrderrequestController');
+// End Routes for orderrequest 
+
                     ?>

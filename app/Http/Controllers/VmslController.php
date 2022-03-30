@@ -19,6 +19,7 @@ use App\Models\Core\Users;
 use App\Models\Websitesettings;
 use App\Models\Vacancyannouncement;
 use App\Models\Contactrequest;
+use App\Models\Orderrequest;
 
 use App\Notifications\arifPasswordResetNotification;
 use Hash;
@@ -277,21 +278,21 @@ public function savecareer(Request $request ){
 		return view('layouts.default.template.singleblog', $data);
     }
 
-    public function project_details(){
-        $data['title'] = 'Project Details';
-		$data['projects'] = projectdetails::where('status', 1)->orderBy('id', 'DESC')->get();
-		$data['setting'] = Websitesettings::where('id', 1)->first();
-		return view('layouts.default.template.projectdetails', $data);
-    }
+    // public function project_details(){
+    //     $data['title'] = 'Project Details';
+	// 	$data['projects'] = projectdetails::where('status', 1)->orderBy('id', 'DESC')->get();
+	// 	$data['setting'] = Websitesettings::where('id', 1)->first();
+	// 	return view('layouts.default.template.projectdetails', $data);
+    // }
 
-    public function single_project($id){
-        $project = projectdetails::find($id);
-        $data['title'] = $project->title;
-        $data['project'] = $project;
-		$data['projects'] = projectdetails::where('status', 1)->orderBy('id', 'DESC')->get();
-		$data['setting'] = Websitesettings::where('id', 1)->first();
-		return view('layouts.default.template.singleproject', $data);
-    }
+    // public function single_project($id){
+    //     $project = projectdetails::find($id);
+    //     $data['title'] = $project->title;
+    //     $data['project'] = $project;
+	// 	$data['projects'] = projectdetails::where('status', 1)->orderBy('id', 'DESC')->get();
+	// 	$data['setting'] = Websitesettings::where('id', 1)->first();
+	// 	return view('layouts.default.template.singleproject', $data);
+    // }
 
 
     public function contact_us(){
@@ -339,4 +340,23 @@ public function savecareer(Request $request ){
 
         return "success";
     }
+
+    public function store_order_request(Request $request){
+
+        $order  = new Orderrequest();
+        $order->name = $request->name;
+        $order->email = $request->email;
+        $order->services = $request->selecttext;
+        $order->address = $request->address;
+        $order->number = $request->number;
+        $order->person = $request->person;
+        $order->date = $request->date;
+        $order->time = $request->time;
+        $order->massage = $request->massage;
+        $order->save();
+
+        return redirect()->back();
+    }
+
+
 }?>

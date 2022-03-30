@@ -59,9 +59,9 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="single-well">
                                     <a href="#">
-                                        <h3>Residential Cleaning</h3>
+                                        <h3>{{$service->title}}</h3>
                                     </a>
-                                    <p>When replacing a multi-lined selection of text, the generated dummy text maintains the amount of lines. When replacing a selection of text within a single line, the amount of words is roughly being maintained.When the replaced text selection consists fully of lower-cased or capital letters or begins with a capital letter, that previous casing is maintained. Furthermore, the presence or absence of a trailing punctuation mark of a replaced text selection is being maintained.</p>
+                                    <p>{!!$service->description!!}</p>
                                 </div>
                             </div>
                            
