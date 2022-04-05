@@ -18,6 +18,7 @@
   animation-name: fadeOut;
 }
 
+.owl-controls .owl-nav{display:block;}
 @-webkit-keyframes fadeOut {
   0% {
     opacity: 1;
@@ -114,8 +115,8 @@
   user-select: none;
 }
 .owl-carousel .owl-item img {
-  display: block;
-  width: 100%;
+  /*display: block;
+  width: 100%;*/
   -webkit-transform-style: preserve-3d;
 }
 .owl-carousel.owl-text-select-on .owl-item {
@@ -174,7 +175,7 @@
   top: 50%;
   margin-left: -40px;
   margin-top: -40px;
-  background: url("owl.video.play.html") no-repeat;
+  background: url("owl.video.play.png") no-repeat;
   cursor: pointer;
   z-index: 1;
   -webkit-backface-visibility: hidden;

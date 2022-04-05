@@ -1,158 +1,84 @@
- <div class="banner-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="banner-content">
-                            <h4>Are you looking for professional Cleaning Services for your House?</h4>
-                            <div class="banner-contact">
-                                <span class="call-us"><i class="icon icon-phone-handset"></i>Call us:  +1313-4325432 </span><span>Or</span>
-                                <a class="banner-btn" href="{{ route('contacts',$contact->id)}}">Contact us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="footer-wrap">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="footer_logo"><img alt="" class="footer-default" src="images/logo.png"></div>
+        <p>Lorem ipsum dolor sit amet, adipiscing elit. Sed tempor, urna eu scelerisque maximus, urna nibh semper lectus, ut interdum nunc ligula et magna. In ac mauris vehicula, vulputate sem at, placerat nisl. Etiam laoreet erat magna, at hendrerit lorem vulputate non. Nam facilisis congue convallis.</p>
+      </div>
+      <div class="col-lg-2 col-md-3">
+        <h3>Quick links</h3>
+        <ul class="footer-links">
+          <li> <a href="index.html">Home</a></li>
+          <li> <a href="about.html">About</a></li>
+          <li> <a href="classes.html">Classes</a></li>
+          <li> <a href="teachers.html">Teachers</a></li>
+          <li> <a href="testimonials.html">Testimonials</a></li>
+          <li> <a href="blog.html">Blog</a></li>
+          <li> <a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <h3>Opening Hours</h3>
+        <ul class="unorderList hourswrp">
+          <li>Monday <span>08:00 - 02:00</span></li>
+          <li>Tuesday <span>08:00 - 02:00</span></li>
+          <li>Wednesday <span>08:00 - 02:00</span></li>
+          <li>Thursday <span>08:00 - 02:00</span></li>
+          <li>Friday <span>08:00 - 02:00</span></li>
+          <li>Saturday <span>08:00 - 02:00</span></li>
+          <li>Sunday <span>Closed</span></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <div class="footer_info">
+          <h3>Get in Touch</h3>
+          <ul class="footer-adress">
+            <li class="footer_address"> <i class="fas fa-map-signs"></i> <span>123 Lorem Ipsum, 32 sit Atlanta</span> </li>
+            <li class="footer_email"> <i class="fas fa-envelope" aria-hidden="true"></i> <span><a href="mailto:info@example.com"> info@example.com </a></span> </li>
+            <li class="footer_phone"> <i class="fas fa-phone-alt"></i> <span><a href="tel:7704282433"> 770-123-4567</a></span> </li>
+          </ul>
+          <div class="social-icons footer_icon">
+            <ul>
+              <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
         </div>
-<footer class="footer-1">
-            <div class="footer-area area-padding">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-5 col-sm-5 col-xs-12">
-							<div class="footer-content">
-								<div class="footer-head">
-									<div class="footer-logo">
-										<a href="#"><img src="{{ asset('uploads/images/'.$setting->logo )}}" alt=""></a>
-									</div>
-									<p>We help agencies to define their new business objectives and then create the road map to get them there by devising a business.We help agencies to define their new business.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Footer End --> 
 
-									<div class="footer-contacts">
-										<p><span>Tel:</span> {!!$setting->phone!!}</p>
-                                        <p><span>Email:</span> {!!$setting->email!!}</p>
-                                        <p><span>Location:</span> {!!$setting->address!!}</p>
-									</div>
-								</div>
-							</div>
-                        </div>
-                        <!-- end single footer -->
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <div class="footer-content">
-                                <div class="footer-head">
-                                    <h4>Services Link</h4>
-                                    <div class="footer-services-link">
-                                    	<ul class="footer-list">
-											<li><a href="#">Apartment</a></li>
-                                            <li><a href="#">Commercial </a></li>
-                                            <li><a href="#">Residential</a></li>
-                                            <li><a href="#">Move in </a></li>
-                                            <li><a href="#">Move out</a></li>
-										</ul>
-										<ul class="footer-list hidden-sm">
-											<li><a href="#">Window Cleaning</a></li>
-                                            <li><a href="#">Maid Services</a></li>
-                                            <li><a href="#">Carpet </a></li>
-                                            <li><a href="#">Garden </a></li>
-                                            <li><a href="#">Bedroom </a></li>
-										</ul>
-                                    </div>
-                                    <div class="footer-icons">
-                                        <h5>Follow us</h5>
-										<ul>
-											<li>
-												<a href="{!!$setting->facebook!!}">
-													<i class="fa fa-facebook"></i>
-												</a>
-											</li>
-											<li>
-												<a href="{!!$setting->twitter!!}">
-													<i class="fa fa-twitter"></i>
-												</a>
-											</li>
-											<li>
-												<a href="{!!$setting->google!!}">
-													<i class="fa fa-google"></i>
-												</a>
-											</li>
-											<li>
-												<a href="{!!$setting->twitter!!}">
-													<i class="fa fa-pinterest"></i>
-												</a>
-											</li>
-											<li>
-												<a href="{!!$setting->twitter!!}">
-													<i class="fa fa-instagram"></i>
-												</a>
-											</li>
-										</ul>
-									</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end single footer -->
-                        <div class="col-md-3 col-sm-3 col-xs-12">
-                            <div class="footer-content">
-                                <div class="footer-head">
-                                    <h4>Subscribe</h4>
-                                    <p>
-                                        We help agencies to define their new business objectives and then create the road map to get them there by devising a business.
-                                    </p>
-                                    <div class="subs-feilds">
-                                        <div class="suscribe-input">
-                                            <input type="email" class="email form-control width-80" id="sus_email" placeholder="Type Email">
-                                            <button type="submit" id="sus_submit" class="add-btn">Subscribe</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end single footer -->
-                    </div>
-                </div>
-            </div>
-            <!-- End footer area -->
-            <div class="footer-area-bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div class="copyright">
-                                <p>
-                                  {{$setting->copyright_text}}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-		
-		
-		<!-- all js here -->
+<!--Copyright Start-->
+<div class="footer-bottom text-center">
+  <div class="container">
+    <div class="copyright-text">Copyright © International School System 2020. All Rights Reserved</div>
+  </div>
+</div>
+<!--Copyright End--> 
 
-		<!-- jquery latest version -->
-		<script src="{{ asset('assets') }}/js/vendor/jquery-1.12.4.min.js"></script>
-		<!-- bootstrap js -->
-		<script src="{{ asset('assets') }}/js/bootstrap.min.js"></script>
-		<!-- owl.carousel js -->
-		<script src="{{ asset('assets') }}/js/owl.carousel.min.js"></script>
-		<!-- Counter js -->
-		<script src="{{ asset('assets') }}/js/jquery.counterup.min.js"></script>
-		<!-- waypoint js -->
-		<script src="{{ asset('assets') }}/js/waypoints.js"></script>
-		<!-- isotope js -->
-        <script src="{{ asset('assets') }}/js/isotope.pkgd.min.js"></script>
-        <!-- stellar js -->
-        <script src="{{ asset('assets') }}/js/jquery.stellar.min.js"></script>
-		<!-- magnific js -->
-        <script src="{{ asset('assets') }}/js/magnific.min.js"></script>
-		<!-- venobox js -->
-		<script src="{{ asset('assets') }}/js/venobox.min.js"></script>
-        <!-- meanmenu js -->
-        <script src="{{ asset('assets') }}/js/jquery.meanmenu.js"></script>
-		<!-- Form validator js -->
-		{{-- <script src="{{ asset('assets') }}/js/form-validator.min.js"></script> --}}
-		<!-- plugins js -->
-		<script src="{{ asset('assets') }}/js/plugins.js"></script>
-		<!-- main js -->
-		<script src="{{ asset('assets') }}/js/main.js"></script>
-	</body>
+<!-- Js --> 
+<script src="{{ asset('assets') }}/js/jquery.min.js"></script> 
+<script src="{{ asset('assets') }}/js/bootstrap.min.js"></script> 
+<script src="{{ asset('assets') }}/js/popper.min.js"></script> 
+<script src="{{ asset('assets') }}/rs-plugin/js/jquery.themepunch.tools.min.js"></script> 
+<script src="{{ asset('assets') }}/rs-plugin/js/jquery.themepunch.revolution.min.js"></script> 
+<!-- Jquery Fancybox --> 
+<script src="{{ asset('assets') }}/js/jquery.fancybox.min.js"></script> 
+<!-- Animate js --> 
+<script src="{{ asset('assets') }}/js/animate.js"></script> 
+<script>
+  new WOW().init();
+</script> 
+<!-- WOW file --> 
+<script src="{{ asset('assets') }}/js/wow.js"></script> 
+<!-- general script file --> 
+<script src="{{ asset('assets') }}/js/owl.carousel.js"></script> 
+<script src="{{ asset('assets') }}/js/script.js"></script>
+</body>
 
+<!-- Mirrored from entiretimes.com/html/school/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Apr 2022 09:56:50 GMT -->
 </html>

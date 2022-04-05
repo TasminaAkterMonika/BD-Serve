@@ -31,26 +31,6 @@
 						<fieldset><legend> Banner</legend>
 				{!! Form::hidden('id', $row['id']) !!}					
 									  <div class="form-group row  " >
-										<label for="Title" class=" control-label col-md-4 text-left"> Title </label>
-										<div class="col-md-6">
-										  <input  type='text' name='title' id='title' value='{{ $row['title'] }}' 
-						     class='form-control form-control-sm ' /> 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group row  " >
-										<label for="Short Title" class=" control-label col-md-4 text-left"> Short Title </label>
-										<div class="col-md-6">
-										  <input  type='text' name='short_title' id='short_title' value='{{ $row['short_title'] }}' 
-						     class='form-control form-control-sm ' /> 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group row  " >
 										<label for="Image" class=" control-label col-md-4 text-left"> Image </label>
 										<div class="col-md-6">
 										  
@@ -63,6 +43,26 @@
 							{!! SiteHelpers::showUploadedFile( $row["image"],"/uploads/images/banner") !!}
 						</div>
 					 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group row  " >
+										<label for="Title" class=" control-label col-md-4 text-left"> Title </label>
+										<div class="col-md-6">
+										  <input  type='text' name='title' id='title' value='{{ $row['title'] }}' 
+						     class='form-control form-control-sm ' /> 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group row  " >
+										<label for="Description" class=" control-label col-md-4 text-left"> Description </label>
+										<div class="col-md-6">
+										  <input  type='text' name='description' id='description' value='{{ $row['description'] }}' 
+						     class='form-control form-control-sm ' /> 
 										 </div> 
 										 <div class="col-md-2">
 										 	

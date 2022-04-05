@@ -89,7 +89,7 @@ Route::get('getmedicine/{id}','CitController@getMedicineById');
 Route::post('sendmail','VmslController@contact_email')->name('contact.email');
 
 
-//cleanhome
+//BD Serve
 Route::get('about','VmslController@about')->name('about');
 
 Route::get('our-team','VmslController@our_team')->name('our.team');
