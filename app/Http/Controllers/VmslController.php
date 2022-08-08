@@ -1,36 +1,45 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Cit;
 use DB;
-use App\Models\Upcoming;
-use App\Models\aboutus;
-use App\Models\ourteam;
-use App\Models\review;
-use App\Models\faq;
-use App\Models\ourservices;
-use App\Models\blogdetails;
-use App\Models\projectdetails;
-use App\Models\contactus;
-use App\Models\orderfrom;
+use App\Models\Aboutus;
+use App\Models\Classes;
+use App\Models\Teacher;
+use App\Models\teacherdetails;
+use App\Models\shortbanner;
+use App\Models\Gallery;
+use App\Models\studentinfo;
+use App\Models\schooldetail;
+use App\Models\Contactus;
+use App\Models\Goal;
+use App\Models\Event;
+use App\Models\Upevent;
+use App\Models\Admissionrequest;
+use App\Models\Managing;
+use App\Models\Advisory;
+use App\Models\Project;
+use App\Models\career;
+use App\Models\adrequirement; 
+use App\Models\Login;
+use App\Models\Sponsorchild;
+use App\Models\Sponsorship;
+use App\Models\Donerlist;
+use App\Models\Createaccount;
 use App\Models\Core\Users;
+use App\Models\Core\program;
 use App\Models\Websitesettings;
-use App\Models\Vacancyannouncement;
 use App\Models\Contactrequest;
-use App\Models\Orderrequest;
-
+use App\Models\Studentlist;
 use App\Notifications\arifPasswordResetNotification;
+use App\Models\Vacancyannouncement;
 use Hash;
 use Helper;
-
-
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 class VmslController extends Controller{
-	
 
-	
 	
 	public function reCaptcha( $request)	{
 		if(!is_null($request['g-recaptcha-response']))
@@ -217,146 +226,314 @@ public function savecareer(Request $request ){
     
     
     
+    
     public function about(){
         $data['title'] = 'About Us';
 		$data['about'] = aboutus::where('status', 1)->orderBy('id', 'DESC')->FIRST();
-        $data['teams'] = ourteam::where('status', 1)->orderBy('id', 'DESC')->limit(3)->get();
-        $data['reviews'] = review::where('status', 1)->orderBy('id', 'DESC')->get();
+        $data['teachers'] = teacher::where('status', 1)->orderBy('id', 'DESC')->limit(4)->get();
+        $data['gallerys'] = Gallery::where('status', 1)->orderBy('id', 'DESC')->get();
+        $data['shortbanner'] = shortbanner::where('status', 1)->orderBy('id', 'DESC')->get();
+        $data['program'] = program::where('status', 1)->orderBy('id', 'DESC')->get();
 		$data['setting'] = Websitesettings::where('id', 1)->first();
 		return view('layouts.default.template.about', $data);
     }
-    public function our_team(){
-        $data['title'] = 'Our Team';
-		$data['teams'] = ourteam::where('status', 1)->orderBy('id', 'DESC')->get();
-		$data['setting'] = Websitesettings::where('id', 1)->first();
-		return view('layouts.default.template.ourteam', $data);
+  
+    public function teacher_s(){
+        $data['title'] = 'Teacher';
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'teachers')->where('status', 1)->first();
+        $data['teachers'] =  teacher::where('status', 1)->orderBy('id', 'ASC')->get();
+        $data['setting'] = Websitesettings::where('id', 1)->first();
+        return view('layouts.default.template.teacher', $data);
     }
 
-    public function review_s(){
+    public function teacherDetails($id){
+        $teachers = Teacher::find($id);
+        $data['title'] = $teachers->name;
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'teacherdetails')->where('status', 1)->first();
+        $data['teachers'] = $teachers;
+		$data['teacherdetailss'] = teacher::where('status', 1)->orderBy('id', 'ASC')->get();
+		$data['setting'] = Websitesettings::where('id', 1)->first();
+		return view('layouts.default.template.teacherdetails', $data);
+    }
+
+    public function gallery_s(){
         $data['title'] = 'Review';
-		$data['reviews'] =  review::where('status', 1)->orderBy('id', 'DESC')->get();
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'teachers')->where('status', 1)->first();
+		$data['gallerys'] =  Gallery::where('status', 1)->orderBy('id', 'DESC')->get();
 		$data['setting'] = Websitesettings::where('id', 1)->first();
-		return view('layouts.default.template.review', $data);
+		return view('layouts.default.template.gallery', $data);
     }
 
-    public function faq_s(){
-        $data['title'] = 'FAQs';
-		$data['faqs'] = faq::where('status', 1)->orderBy('id', 'DESC')->get();
-		$data['setting'] = Websitesettings::where('id', 1)->first();
-		return view('layouts.default.template.faq', $data);
-    }
-
-    public function service(){
-        $data['title'] = 'Services';
-		$data['services'] = DB::table('our_service')->where('status', 1)->orderBy('title', 'DESC')->get();
-		$data['setting'] = Websitesettings::where('id', 1)->first();
-		return view('layouts.default.template.ourservice', $data);
-    }
- 
-    public function singleService($id){
-        $service = ourservices::find($id);
-        $data['title'] = $service->title;
-        $data['service'] = $service;
-		$data['services'] = ourservices::where('status', 1)->orderBy('id', 'DESC')->get();
-		$data['setting'] = Websitesettings::where('id', 1)->first();
-		return view('layouts.default.template.service-details', $data);
+    public function class(){
+        $data['title'] = 'Classes';
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'class')->where('status', 1)->first();
+        $data['class_list'] =  Classes::where('status', 1)->orderBy('id', 'ASC')->get();
+        $data['setting'] = Websitesettings::where('id', 1)->first();
+        return view('layouts.default.template.class_list', $data);
     }
     
-    public function blog_details(){
-        $data['title'] = 'Blog Details';
-		$data['blogs'] = blogdetails::where('status', 1)->orderBy('id', 'DESC')->get();
-		$data['setting'] = Websitesettings::where('id', 1)->first();
-        return view('layouts.default.template.blogdetails', $data);
+    public function studentList($id){
+        $class = Classes::find($id);
+        $data['title'] = $class->class;
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'studentlist')->where('status', 1)->first();
+        $data['class'] = $class;
+        $data['student_list'] = Studentlist::where('status', 1)->where('class', $id)->get();
+        $data['ones'] =  Studentlist::where('status', 1)->orderBy('id', 'ASC')->get();
+        $data['setting'] = Websitesettings::where('id', 1)->first();
+        return view('layouts.default.template.student-list', $data);
     }
 
-    public function single_blog($id){
-        $blog = blogdetails::find($id);
-        $data['title'] = $blog->title;
-        $data['blog'] = $blog;
-		$data['blogs'] = blogdetails::where('status', 1)->orderBy('id', 'DESC')->get();
-		$data['setting'] = Websitesettings::where('id', 1)->first();
-		return view('layouts.default.template.singleblog', $data);
+    public function studentDetails($id){
+        $student = Studentlist::find($id);
+        $data['title'] = $student->name;
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'studentdetails')->where('status', 1)->first();
+        $data['detail'] = $student;
+        $data['setting'] = Websitesettings::where('id', 1)->first();
+        return view('layouts.default.template.student-detail', $data);
     }
 
-    // public function project_details(){
-    //     $data['title'] = 'Project Details';
-	// 	$data['projects'] = projectdetails::where('status', 1)->orderBy('id', 'DESC')->get();
-	// 	$data['setting'] = Websitesettings::where('id', 1)->first();
-	// 	return view('layouts.default.template.projectdetails', $data);
-    // }
+    public function project_s(){
+        $data['title'] = 'Project';
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'projects')->where('status', 1)->first();
+        $data['projects'] =  Project::where('status', 1)->orderBy('id', 'ASC')->get();
+        $data['setting'] = Websitesettings::where('id', 1)->first();
+        return view('layouts.default.template.project', $data);
+    }
 
-    // public function single_project($id){
-    //     $project = projectdetails::find($id);
-    //     $data['title'] = $project->title;
-    //     $data['project'] = $project;
-	// 	$data['projects'] = projectdetails::where('status', 1)->orderBy('id', 'DESC')->get();
-	// 	$data['setting'] = Websitesettings::where('id', 1)->first();
-	// 	return view('layouts.default.template.singleproject', $data);
-    // }
+    public function donet_s(){
+        $data['title'] = 'Donet Now';
+        // $data['donets'] =  donet::where('status', 1)->orderBy('id', 'ASC')->get();
+        $data['setting'] = Websitesettings::where('id', 1)->first();
+        return view('layouts.default.template.donetnow', $data);
+    }
 
+    public function admission_s(){
+        $data['title'] = 'Admission';
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'admissions')->where('status', 1)->first();
+		$data['setting'] = Websitesettings::where('id', 1)->first();
+		return view('layouts.default.template.admission', $data);
+    }
+
+    public function schooldetail_s(){
+        $data['title'] = 'School Detail';
+		$data['breadcum'] = DB::table('all_banner')->where('value', 'schooldetails')->where('status', 1)->first();
+		$data['schooldetails'] = DB::table('schooldetail')->where('status', 1)->orderBy('id', 'DESC')->get();
+		$data['setting'] = Websitesettings::where('id', 1)->first();
+		return view('layouts.default.template.schooldetail', $data);
+    }
+
+    public function goal_s(){
+        $data['title'] = 'Goal';
+        	$data['breadcum'] = DB::table('all_banner')->where('value', 'goals')->where('status', 1)->first();
+		$data['goals'] = Goal::where('status', 1)->orderBy('id', 'DESC')->get();
+		$data['setting'] = Websitesettings::where('id', 1)->first();
+		return view('layouts.default.template.goal', $data);
+    }
+
+    public function event_s(){
+        $data['title'] = 'Event';
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'events')->where('status', 1)->first();
+		$data['events'] = Event::where('status', 1)->orderBy('id', 'DESC')->get();
+		$data['setting'] = Websitesettings::where('id', 1)->first();
+		return view('layouts.default.template.event', $data);
+    }
+
+    public function upevent_s(){
+        $data['title'] = 'Up Event';
+	 //$data['upevents'] = Upevent::where('status', 1)->orderBy('id', 'DESC')->get();
+		$data['setting'] = Websitesettings::where('id', 1)->first();
+		return view('layouts.default.template.upevent', $data);
+    }
 
     public function contact_us(){
         $data['title'] = 'Contact Us';
-		$data['contacts'] = contactus::where('status', 1)->orderBy('id', 'DESC')->get();
-        $data['city'] = contactus::where('status', 1)->distinct('city')->get();
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'contacts')->where('status', 1)->first();
+		$data['contacts'] = Contactus::where('status', 1)->orderBy('id', 'DESC')->get();
+        $data['city'] = Contactus::where('status', 1)->distinct('city')->get();
 		$data['setting'] = Websitesettings::where('id', 1)->first();
 		return view('layouts.default.template.contactus', $data);
     }
 
-    public function order_from(){
-        $data['title'] = 'Order From';
+    public function managing_s(){
+        $data['title'] = 'Mannaging Committee';
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'managings')->where('status', 1)->first();
+		$data['managings'] =Managing::where('status', 1)->orderBy('id', 'ASC')->get();
 		$data['setting'] = Websitesettings::where('id', 1)->first();
-		return view('layouts.default.template.orderfrom', $data);
+		return view('layouts.default.template.managing', $data);
     }
 
-	public function career(){
-	    $data['title'] = 'Career';
-	    $data['setting'] =  Websitesettings::where('id', 1)->first();
-	    $data['circular'] = Vacancyannouncement::orderBy('id', 'DESC')->get();
-	    return view('layouts.default.template.career', $data);
-	}
-	
-	public function circular($id=null){
-	    $data['title'] = 'Career';
-	    $data['setting'] = Websitesettings::where('id', 1)->first();
-	    $data['career'] = Vacancyannouncement::where('id', $id)->first();
-	    if($data['career']){
-	        return view('layouts.default.template.career_view', $data);
-	    }else{
-	        return view('errors.404');
-	    }
-	}
-
-    public function store_contact_request(Request $request){
-
-        $contact  = new Contactrequest();
-        $contact->name = $request->name;
-        $contact->email = $request->email;
-        $contact->phone = $request->phone;
-        $contact->subject = $request->msg_subject;
-        $contact->message = $request->message;
-        $contact->subject = $request->selecttext;
-        $contact->save();
-
-        return "success";
+    public function advisory_s(){
+        $data['title'] = 'Advisory Committee';
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'advisorys')->where('status', 1)->first();
+		$data['advisorys'] = Advisory::where('status', 1)->orderBy('id', 'ASC')->get();
+		$data['setting'] = Websitesettings::where('id', 1)->first();
+		return view('layouts.default.template.advisory', $data);
     }
 
-    public function store_order_request(Request $request){
-
-        $order  = new Orderrequest();
-        $order->name = $request->name;
-        $order->email = $request->email;
-        $order->services = $request->selecttext;
-        $order->address = $request->address;
-        $order->number = $request->number;
-        $order->person = $request->person;
-        $order->date = $request->date;
-        $order->time = $request->time;
-        $order->massage = $request->massage;
-        $order->save();
-
-        return redirect()->back();
+    public function result_s(){
+        $data['title'] = 'Result';
+         $data['breadcum'] = DB::table('all_banner')->where('value', 'results')->where('status', 1)->first();
+		// $data['results'] = result::where('status', 1)->orderBy('id', 'DESC')->get();
+		$data['setting'] = Websitesettings::where('id', 1)->first();
+		return view('layouts.default.template.result', $data);
     }
 
+    public function notice_s(){
+        $data['title'] = 'Notice';
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'notices')->where('status', 1)->first();
+		// $data['notices'] = notice::where('status', 1)->orderBy('id', 'DESC')->get();
+		$data['setting'] = Websitesettings::where('id', 1)->first();
+		return view('layouts.default.template.notice', $data);
+    }
+
+    public function activiti_s(){
+        $data['title'] = 'Activitis';
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'activitis')->where('status', 1)->first();
+		// $data['notices'] = notice::where('status', 1)->orderBy('id', 'DESC')->get();
+		$data['setting'] = Websitesettings::where('id', 1)->first();
+		return view('layouts.default.template.activiti', $data);
+    }
+
+    public function sport_s(){
+        $data['title'] = 'Sport';
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'sports')->where('status', 1)->first();
+		// $data['notices'] = notice::where('status', 1)->orderBy('id', 'DESC')->get();
+		$data['setting'] = Websitesettings::where('id', 1)->first();
+		return view('layouts.default.template.sport', $data);
+    }
+
+    public function art_s(){
+        $data['title'] = 'Art';
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'arts')->where('status', 1)->first();
+		// $data['notices'] = notice::where('status', 1)->orderBy('id', 'DESC')->get();
+		$data['setting'] = Websitesettings::where('id', 1)->first();
+		return view('layouts.default.template.art', $data);
+    }
+
+    public function music_s(){
+        $data['title'] = 'Music';
+		// $data['notices'] = notice::where('status', 1)->orderBy('id', 'DESC')->get();
+		$data['setting'] = Websitesettings::where('id', 1)->first();
+		return view('layouts.default.template.music', $data);
+    }
+
+    public function founder_s(){
+        $data['title'] = 'Founder';
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'founders')->where('status', 1)->first();
+		// $data['notices'] = notice::where('status', 1)->orderBy('id', 'DESC')->get();
+		$data['setting'] = Websitesettings::where('id', 1)->first();
+		return view('layouts.default.template.founder', $data);
+    }
+
+    public function curriculam_s(){
+        $data['title'] = 'Curriculam';
+		// $data['notices'] = notice::where('status', 1)->orderBy('id', 'DESC')->get();
+		$data['setting'] = Websitesettings::where('id', 1)->first();
+		return view('layouts.default.template.curriculam', $data);
+    }
+
+    public function career_s(){
+        $data['title'] = 'Career';
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'careers')->where('status', 1)->first();
+        // $data['careers'] =  career::where('status', 1)->orderBy('id', 'ASC')->get();
+        $data['setting'] = Websitesettings::where('id', 1)->first();
+        return view('layouts.default.template.career', $data);
+    }
+
+    public function adrequirement_s(){
+        $data['title'] = 'Admission Requirement';
+        $data['adrequirements'] =  adrequirement::where('status', 1)->orderBy('id', 'ASC')->get();
+        $data['setting'] = Websitesettings::where('id', 1)->first();
+        return view('layouts.default.template.adrequirement', $data);
+    }
+
+    public function login_s(){
+        $data['title'] = 'Login';
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'logins')->where('status', 1)->first();
+        // $data['login'] =  login::where('status', 1)->orderBy('id', 'ASC')->get();
+        $data['setting'] = Websitesettings::where('id', 1)->first();
+        return view('layouts.default.template.login', $data);
+    }
+    
+      public function sponsorchild(){
+        $data['title'] = 'Sponsor Child ';
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'sponsorchild')->where('status', 1)->first();
+        // $data['login'] =  login::where('status', 1)->orderBy('id', 'ASC')->get();
+        $data['setting'] = Websitesettings::where('id', 1)->first();
+        return view('layouts.default.template.sponsorchild', $data);
+    }
+      public function sponsorship(){
+        $data['title'] = 'Sponsor Ship ';
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'sponsorship')->where('status', 1)->first();
+        // $data['login'] =  login::where('status', 1)->orderBy('id', 'ASC')->get();
+        $data['setting'] = Websitesettings::where('id', 1)->first();
+        return view('layouts.default.template.sponsorship', $data);
+    }
+    
+       public function doner_list(){
+        $data['title'] = 'Doner List ';
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'donerlist')->where('status', 1)->first();
+        $data['doner'] =  Donerlist::where('status', 1)->orderBy('id', 'ASC')->get();
+        $data['setting'] = Websitesettings::where('id', 1)->first();
+        return view('layouts.default.template.donerlist', $data);
+    }
+    
+       public function create_account(){
+        $data['title'] = 'Create Account ';
+        $data['breadcum'] = DB::table('all_banner')->where('value', 'create')->where('status', 1)->first();
+        // $data['doner'] =  Donerlist::where('status', 1)->orderBy('id', 'ASC')->get();
+        $data['setting'] = Websitesettings::where('id', 1)->first();
+        return view('layouts.default.template.createaccount', $data);
+    }
+
+                            
+
+
+
+    public function store_admission_request(Request $request){
+
+        $validated = $request->validate([
+            'name' => 'required',
+    
+            ]);
+   
+        $admission  = new Admissionrequest();
+        $admission->name = $request->name;
+
+        $admission->student_image= $request->image;
+        $admission->dob = $request->birth;
+        $admission->gender = $request->gender;
+        $admission->age = $request->age;
+        $admission->email = $request->email;
+        $admission->fathers_name = $request->fname;
+        $admission->f_occupation = $request->foccu;
+        $admission->mothers_name = $request->mname;
+        $admission->m_occupation = $request->moccu;
+        $admission->nid_no = $request->nidno;
+        $admission->passport = $request->passport;
+        $admission->birth_certificate_no = $request->birthno;
+        $admission->weight = $request->weight;
+        $admission->previous_education_certificate= $request->pcn;
+        $admission->type_of_disability = $request->tod;
+        $admission->spacial_skill = $request->sskill;
+        $admission->session = $request->session;
+        $admission->hight = $request->hight;
+        $admission->postal_code = $request->pcode;
+        $admission->blood_group = $request->blood;
+        $admission->application_for_class = $request->class;
+        $admission->village = $request->village;
+        $admission->post= $request->post;
+        $admission->upazila = $request->upazila;
+        $admission->district = $request->district;
+        $admission->praimary_contact_number = $request->pcn;
+        $admission->secondary_contact_number = $request->scn;
+       
+       
+        $admission->save();
+        
+        $result = 'success';
+
+        return Redirect()->back()->with('message', 'Your Application Has been Submitted. Thank You!');
+    }    
 
 }?>

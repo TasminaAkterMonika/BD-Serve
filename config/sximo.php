@@ -1,11 +1,11 @@
 <?php 
 return [
-'cnf_appname' 			=> 'Dhas School',
-'cnf_appdesc' 			=> 'Dhas School',
+'cnf_appname' 			=> 'IT',
+'cnf_appdesc' 			=> 'IT',
 'cnf_comname' 			=> 'VMSL',
 'cnf_email' 			=> 'info@kfaconsulting.org',
-'cnf_metakey' 			=> 'DHASSCHOOL',
-'cnf_metadesc' 		=> 'DHASSCHOOL',
+'cnf_metakey' 			=> 'IT',
+'cnf_metadesc' 		=> 'IT',
 'cnf_group' 			=> '3',
 'cnf_activation' 		=> 'manual',
 'cnf_multilang' 		=> '1',

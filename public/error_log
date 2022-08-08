@@ -1,0 +1,1 @@
+[07-Jun-2022 05:48:47 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\VmslController::contact_us() in /home/dhasscho/public_html/app/Http/Controllers/VmslController.php on line 473

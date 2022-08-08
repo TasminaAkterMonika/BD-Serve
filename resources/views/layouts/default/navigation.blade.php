@@ -1,63 +1,79 @@
-<div class="header-wrap">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-3 col-md-12 navbar-light">
-        <div class="logo"> <a href="index.html"><img alt="" class="logo-default" src="{{ asset('uploads/images/'.config('sximo')['cnf_logo'])}}"></a></div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-      </div>
-      <div class="col-lg-6 col-md-12">
-        <div class="navigation-wrap" id="filters">
-          <nav class="navbar navbar-expand-lg navbar-light"> <a class="navbar-brand" href="#">Menu</a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <button class="close-toggler" type="button" data-toggle="offcanvas"> <span><i class="fas fa-times-circle" aria-hidden="true"></i></span> </button>
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item"> <a class="nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a> </li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="classes.html">Classes</a> <i class="fas fa-caret-down"></i>
-                  <ul class="submenu">
-                    <li><a href="classes.html">Classes</a></li>
-                    <li><a href="classes-details.html">Classes Details</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="teachers.html">Teachers</a>
-                  <ul class="submenu">
-                    <li><a href="teachers.html">Teachers</a></li>
-                    <li><a href="teachers-details.html">Teachers Details</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="#.">Pages</a> <i class="fas fa-caret-down"></i>
-                  <ul class="submenu">
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="teachers.html">Our Teachers</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="register.html">Register</a></li>
-                    <li><a href="pricing.html">Our Pricing</a></li>
-                    <li><a href="faqs.html">Faqs</a></li>
-                    <li><a href="testimonials.html">Testimonials</a></li>
-                    <li><a href="typography.html">Typography</a></li>
-                    <li><a href="404.html">404</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a> <i class="fas fa-caret-down"></i>
-                  <ul class="submenu">
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="blog-grid.html">Blog Grid Sidebar</a></li>
-                    <li><a href="blog-list.html">Blog List sidebar</a></li>
-                    <li><a href="blog-details.html">Blog Details</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-      </div>
-      <div class="col-lg-3">
-        <div class="header_info">
-          <div class="search"><a href="#"><i class="fas fa-search"></i></a></div>
-          <div class="loginwrp"><a href="login.html">Login/Register</a></div>
-        </div>
+ <div id="loading">
+      <div id="loading-center">
+        <img src="{{ asset('assets') }}/images/loader.gif" alt="loder">
       </div>
     </div>
-  </div>
-</div>
+    <!-- loading End -->
+    <!-- Header-->
+    <header>
+
+      <div class="container-fluid main-header">
+        <div class="row">
+          <div class="col-sm-12">
+            <nav class="navbar navbar-expand-lg navbar-light">
+              <a class="navbar-brand" href="index.html">
+                <img src="{{ asset('uploads/images/'.config('sximo')['cnf_logo'])}}" class="img-fluid logo" alt="img">
+                <img src="{{ asset('uploads/images/'.config('sximo')['cnf_logo'])}}" class="img-fluid logo-white" alt="img">
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="services.html">Services</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact Us</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Pages
+                    </a>
+                    <div class="dropdown-menu drop-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="login.html">Login</a>
+                      <a class="dropdown-item" href="register.html">Register</a>
+                      <a class="dropdown-item" href="blog-details.html">Blog Details</a>
+                      <a class="dropdown-item" href="pricing.html">Pricing</a>
+                      <a class="dropdown-item" href="404-error.html">404 Error</a>
+                      <a class="dropdown-item" href="comingsoon.html">Coming Soon</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <!-- <div class="sub-main">
+                <ul class="shop_list">
+                    <li class="cart-btn list-inline-item">
+                        <div class="cart_count">
+                            <a class="parents mini-cart-count" href="javascript:void(0)">
+                                <i class="fa fa-shopping-cart"></i>
+                                <div id="mini-cart-count">
+                                    0
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                  <li class="cart-btn list-inline-item">
+                    <div class="cart_count">
+                        <a class="parents mini-cart-count" href="javascript:void(0)">
+                            <i class="fa fa-heart" ></i>
+                            <div id="mini-cart-count">
+                                    0
+                            </div>
+                      </div>
+                  </li>
+                </ul>
+            </div> -->
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Header-->
+   

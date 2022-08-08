@@ -1,84 +1,75 @@
-<div class="footer-wrap">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="footer_logo"><img alt="" class="footer-default" src="images/logo.png"></div>
-        <p>Lorem ipsum dolor sit amet, adipiscing elit. Sed tempor, urna eu scelerisque maximus, urna nibh semper lectus, ut interdum nunc ligula et magna. In ac mauris vehicula, vulputate sem at, placerat nisl. Etiam laoreet erat magna, at hendrerit lorem vulputate non. Nam facilisis congue convallis.</p>
-      </div>
-      <div class="col-lg-2 col-md-3">
-        <h3>Quick links</h3>
-        <ul class="footer-links">
-          <li> <a href="index.html">Home</a></li>
-          <li> <a href="about.html">About</a></li>
-          <li> <a href="classes.html">Classes</a></li>
-          <li> <a href="teachers.html">Teachers</a></li>
-          <li> <a href="testimonials.html">Testimonials</a></li>
-          <li> <a href="blog.html">Blog</a></li>
-          <li> <a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="col-lg-3 col-md-4">
-        <h3>Opening Hours</h3>
-        <ul class="unorderList hourswrp">
-          <li>Monday <span>08:00 - 02:00</span></li>
-          <li>Tuesday <span>08:00 - 02:00</span></li>
-          <li>Wednesday <span>08:00 - 02:00</span></li>
-          <li>Thursday <span>08:00 - 02:00</span></li>
-          <li>Friday <span>08:00 - 02:00</span></li>
-          <li>Saturday <span>08:00 - 02:00</span></li>
-          <li>Sunday <span>Closed</span></li>
-        </ul>
-      </div>
-      <div class="col-lg-3 col-md-4">
-        <div class="footer_info">
-          <h3>Get in Touch</h3>
-          <ul class="footer-adress">
-            <li class="footer_address"> <i class="fas fa-map-signs"></i> <span>123 Lorem Ipsum, 32 sit Atlanta</span> </li>
-            <li class="footer_email"> <i class="fas fa-envelope" aria-hidden="true"></i> <span><a href="mailto:info@example.com"> info@example.com </a></span> </li>
-            <li class="footer_phone"> <i class="fas fa-phone-alt"></i> <span><a href="tel:7704282433"> 770-123-4567</a></span> </li>
-          </ul>
-          <div class="social-icons footer_icon">
-            <ul>
-              <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+ <!-- Footer start-->
+    <footer id="contact" class="main-bg ">
+      <div class="container">
+        <div class="row">
+          <div class="col-auto mr-auto">
+            <div class="footer-logo">
+              <a href="index.html"><img src="{{ asset('uploads/images/'.$setting->logo )}}" alt="img"></a>
+            </div>
+          </div>
+          <div class="col-auto right-footer">
+            <ul class="nav footer-menu">
+              <li class="nav-item">
+                <a class="nav-link " href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="services.html">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
             </ul>
           </div>
         </div>
+        <hr class="pt-5">
+        <div class="pt-3">
+          <div class="row justify-content-between">
+            <div class="col-auto mr-auto">
+              <h6 class="text-white iq-font-18"><span>Design By@</span><a href="https://iqonicthemes.com/"> iqonictheme.com</a></h6>
+            </div>
+            <div class="col-auto">
+              <div class="social-icone">
+                <ul>
+                  <li class="d-inline"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                  <li class="d-inline"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li class="d-inline"><a href="#"><i class="fab fa-google"></i></a></li>
+                  <li class="d-inline"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
-<!-- Footer End --> 
+      <!-- back-to-top -->
+      <div id="back-to-top">
+        <a class="top" id="top" href="#top"><span>Scroll Up</span> <i class="ion-ios-arrow-thin-up"></i></a>
+      </div>
+      <!-- back-to-top End -->
+      <!--=================================
+         Cookies -->
+      <div id="cookie_div" class="align-items-center"> We use cookies to give you tailored experiences on our website.
+          <a class="button grey text-right ml-3" href="#" role="button" id="cookie">Accept </a>
+      </div>
+       <!--=================================
+          Cookies -->
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first -->
+    <script src="{{ asset('assets') }}/js/jquery-3.3.1.min.js"></script>
+    <!-- popper -->
+    <script src="{{ asset('assets') }}/js/popper.min.js"></script>
+    <!-- bootstrap -->
+    <script src="{{ asset('assets') }}/js/bootstrap.min.js"></script>
+    <!-- Owl Carousel -->
+    <script src="{{ asset('assets') }}/js/owl.carousel.min.js"></script>
+    <!-- main -->
+    <script src="{{ asset('assets') }}/js/main.js"></script>
+    <!--custom -->
+    <script src="{{ asset('assets') }}/js/custom.js"></script>
+  </body>
 
-<!--Copyright Start-->
-<div class="footer-bottom text-center">
-  <div class="container">
-    <div class="copyright-text">Copyright © International School System 2020. All Rights Reserved</div>
-  </div>
-</div>
-<!--Copyright End--> 
-
-<!-- Js --> 
-<script src="{{ asset('assets') }}/js/jquery.min.js"></script> 
-<script src="{{ asset('assets') }}/js/bootstrap.min.js"></script> 
-<script src="{{ asset('assets') }}/js/popper.min.js"></script> 
-<script src="{{ asset('assets') }}/rs-plugin/js/jquery.themepunch.tools.min.js"></script> 
-<script src="{{ asset('assets') }}/rs-plugin/js/jquery.themepunch.revolution.min.js"></script> 
-<!-- Jquery Fancybox --> 
-<script src="{{ asset('assets') }}/js/jquery.fancybox.min.js"></script> 
-<!-- Animate js --> 
-<script src="{{ asset('assets') }}/js/animate.js"></script> 
-<script>
-  new WOW().init();
-</script> 
-<!-- WOW file --> 
-<script src="{{ asset('assets') }}/js/wow.js"></script> 
-<!-- general script file --> 
-<script src="{{ asset('assets') }}/js/owl.carousel.js"></script> 
-<script src="{{ asset('assets') }}/js/script.js"></script>
-</body>
-
-<!-- Mirrored from entiretimes.com/html/school/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Apr 2022 09:56:50 GMT -->
+<!-- Mirrored from templates.iqonic.design/vizion/digital-marketing/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 04 Aug 2022 05:40:11 GMT -->
 </html>

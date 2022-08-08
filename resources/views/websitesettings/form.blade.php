@@ -143,8 +143,8 @@
 									  <div class="form-group row  " >
 										<label for="About Note" class=" control-label col-md-4 text-left"> About Note </label>
 										<div class="col-md-6">
-										  <textarea name='about_note' rows='5' id='about_note' class='form-control form-control-sm '  
-				           >{{ $row['about_note'] }}</textarea> 
+										  <textarea name='about_note' rows='5' id='editor' class='form-control form-control-sm editor '  
+						 >{{ $row['about_note'] }}</textarea> 
 										 </div> 
 										 <div class="col-md-2">
 										 	

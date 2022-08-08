@@ -89,35 +89,70 @@ Route::get('getmedicine/{id}','CitController@getMedicineById');
 Route::post('sendmail','VmslController@contact_email')->name('contact.email');
 
 
-//BD Serve
+//DHAS School Serve
 Route::get('about','VmslController@about')->name('about');
 
-Route::get('our-team','VmslController@our_team')->name('our.team');
+Route::get('homebanner','VmslController@homeBanner')->name('home.banner');
 
-Route::get('review-s','VmslController@review_s')->name('review.s');
+Route::get('teacher/details/{id}','VmslController@teacherDetails')->name('teacher.details');
 
-Route::get('faq-s','VmslController@faq_s')->name('faq.s');
+Route::get('gallerys','VmslController@gallery_s')->name('gallerys');
 
-// Route::get('projects','VmslController@project_details')->name('projects');
+Route::get('schooldetails','VmslController@schooldetail_s')->name('schooldetails');
 
-Route::get('testimonial-s','VmslController@testimonial_s')->name('testimonial.s');
+Route::get('goals','VmslController@goal_s')->name('goals');
 
-Route::get('services','VmslController@service')->name('services');
+Route::get('events','VmslController@event_s')->name('events');
 
-Route::get('service-details/{id}','VmslController@singleService')->name('service.details');
+Route::get('upevents','VmslController@upevent_s')->name('upevents');
 
-Route::get('blogs','VmslController@blog_details')->name('blogs');
+Route::get('class','VmslController@class')->name('class');
 
-Route::get('single/blog/{id}','VmslController@single_blog')->name('single.blog');
+Route::get('student/list/{id}','VmslController@studentList')->name('student.list');
 
-Route::get('single/project/{id}','VmslController@single_project')->name('single.project');
+Route::get('student/details/{id}','VmslController@studentDetails')->name('student.details');
+
+Route::get('admissions','VmslController@admission_s')->name('admissions');
+
+Route::get('projects','VmslController@project_s')->name('projects');
+
+Route::get('donets','VmslController@donet_s')->name('donets');
 
 Route::get('contacts','VmslController@contact_us')->name('contacts');
 
-Route::get('category-s','VmslController@category_s')->name('category.s');
+Route::get('managings','VmslController@managing_s')->name('managings');
 
-Route::get('order-from','VmslController@order_from')->name('order.from');
+Route::get('advisorys','VmslController@advisory_s')->name('advisorys');
 
-Route::post('submitcontactrequest','VmslController@store_contact_request')->name('submit.contact.request');
+Route::get('results','VmslController@result_s')->name('results');
 
-Route::post('submitorderrequest','VmslController@store_order_request')->name('submit.order.request');
+Route::get('notices','VmslController@notice_s')->name('notices');
+
+Route::get('activitis','VmslController@activiti_s')->name('activitis');
+
+Route::get('sports','VmslController@sport_s')->name('sports');
+
+Route::get('arts','VmslController@art_s')->name('arts');
+
+Route::get('musics','VmslController@music_s')->name('musics');
+
+Route::get('founders','VmslController@founder_s')->name('founders');
+
+Route::get('curriculams','VmslController@curriculam_s')->name('curriculams');
+
+Route::get('careers','VmslController@career_s')->name('careers');
+
+Route::get('adrequirements','VmslController@adrequirement_s')->name('adrequirements');
+
+Route::get('logins','VmslController@login_s')->name('logins');
+
+Route::post('submitadmissionrequest','VmslController@store_admission_request')->name('submit.admission.request');
+
+Route::get('sponsorchild','VmslController@sponsorchild')->name('sponsorchild');
+
+Route::get('sponsorship','VmslController@sponsorship')->name('sponsorship');
+
+Route::get('doner','VmslController@doner_List')->name('doner');
+
+Route::get('create','VmslController@create_account')->name('create');
+

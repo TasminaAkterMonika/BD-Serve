@@ -20,8 +20,8 @@ Route::resource('services/vacancyannouncement','Services\VacancyannouncementCont
 // End Routes for vacancyannouncement 
 
                     
-// Start Routes for banner 
-Route::resource('services/banner','Services\BannerController');
-// End Routes for banner 
+// Start Routes for homebanner 
+Route::resource('services/homebanner','Services\HomebannerController');
+// End Routes for homebanner 
 
                     ?>
